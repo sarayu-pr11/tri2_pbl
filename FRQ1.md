@@ -121,5 +121,5 @@ function dayOfYear(month, day, year) {
 <input id="inputMonth" placeholder="Input Month">
 <input id="inputDay" placeholder="Input Day">
 <input id="inputYear5" placeholder="Input Year">
-<button onclick="numberOfLeapYears(getMonth(), getDay(), getYear5())">Submit</button>
+<button onclick="dayOfYear(getMonth(), getDay(), getYear5())">Submit</button>
 <p id="dayOfYearResult"></p>
