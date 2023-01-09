@@ -4,7 +4,7 @@
 
 function generate() {
     console.log("button clicked");
-    fetch("https://hetvitrivedi.tk/api/lightboard/", {"method": "GET"})
+    fetch("https://sarayu.tk/api/lightboard", {"method": "GET"})
     // response is a RESTful "promise" on any successful fetch
     .then(response => {
         // check for response errors
