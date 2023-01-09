@@ -14,18 +14,18 @@ function getYear2(){
 }
 
 function getYear3(){
-    let inputYear3 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear3 = document.getElementById("inputYear3").value;
+    return inputYear3;
 }
 
 function getYear4(){
-    let inputYear4 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear4 = document.getElementById("inputYear4").value;
+    return inputYear4;
 }
 
 function getYear5(){
-    let inputYear5 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear5 = document.getElementById("inputYear5").value;
+    return inputYear5;
 }
 
 function getMonth(){
@@ -39,18 +39,18 @@ function getDay(){
 }
 
 function getYear6(){
-    let inputYear6 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear6 = document.getElementById("inputYear6").value;
+    return inputYear6;
 }
 
 function getMonth2(){
-    let inputMonth2 = document.getElementById("inputMonth").value;
-    return inputMonth;
+    let inputMonth2 = document.getElementById("inputMonth2").value;
+    return inputMonth2;
 }
 
 function getDay2(){
-    let inputDay2 = document.getElementById("inputDay").value;
-    return inputDay;
+    let inputDay2 = document.getElementById("inputDay2").value;
+    return inputDay2;
 }
 
 function isLeapYear(year) {
