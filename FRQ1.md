@@ -14,17 +14,17 @@ function getYear2(){
 }
 
 function getYear3(){
-    let inputYear2 = document.getElementById("inputYear2").value;
+    let inputYear3 = document.getElementById("inputYear2").value;
     return inputYear2;
 }
 
 function getYear4(){
-    let inputYear2 = document.getElementById("inputYear2").value;
+    let inputYear4 = document.getElementById("inputYear2").value;
     return inputYear2;
 }
 
 function getYear5(){
-    let inputYear2 = document.getElementById("inputYear2").value;
+    let inputYear5 = document.getElementById("inputYear2").value;
     return inputYear2;
 }
 
@@ -35,6 +35,21 @@ function getMonth(){
 
 function getDay(){
     let inputDay = document.getElementById("inputDay").value;
+    return inputDay;
+}
+
+function getYear6(){
+    let inputYear6 = document.getElementById("inputYear2").value;
+    return inputYear2;
+}
+
+function getMonth2(){
+    let inputMonth2 = document.getElementById("inputMonth").value;
+    return inputMonth;
+}
+
+function getDay2(){
+    let inputDay2 = document.getElementById("inputDay").value;
     return inputDay;
 }
 
@@ -98,6 +113,21 @@ function dayOfYear(month, day, year) {
     })
 }
 
+function dayOfWeek(month, day, year) {
+    result = document.getElementById("dayOfWeekResult");
+
+    // Fetch data from API
+    fetch('https://sarayu.tk/api/calendar/dayOfWeek/' + month + '/'+ day + '/' + year)
+    .then(response => response.json())
+    .then(data => {
+
+        console.log(data);
+
+        result.innerHTML = "Day of week of  " + month + "/" + day + "/" + "/" + year + ": " +data.dayOfWeek;
+
+    })
+}
+
 
 </script>
 
@@ -123,3 +153,10 @@ function dayOfYear(month, day, year) {
 <input id="inputYear5" placeholder="Input Year">
 <button onclick="dayOfYear(getMonth(), getDay(), getYear5())">Submit</button>
 <p id="dayOfYearResult"></p>
+
+### Check what day of week a date is (dayOfWeek)
+<input id="inputMonth2" placeholder="Input Month">
+<input id="inputDay2" placeholder="Input Day">
+<input id="inputYear6" placeholder="Input Year">
+<button onclick="dayOfWeek(getMonth2(), getDay2(), getYear6())">Submit</button>
+<p id="dayOfWeekResult"></p>
