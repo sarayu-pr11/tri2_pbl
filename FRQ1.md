@@ -108,7 +108,7 @@ function dayOfYear(month, day, year) {
 
         console.log(data);
 
-        result.innerHTML = "Day of year of  " + month + "/" + day + "/" + "/" + year + ": " +data.dayOfYear;
+        result.innerHTML = "Day of year of  " + month + "/" + day  + "/" + year + ": " +data.dayOfYear;
 
     })
 }
