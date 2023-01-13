@@ -21,7 +21,7 @@
         console.log(typeof data);
         console.log(JSON.stringify(data))
 
-        document.getElementById("result).innerHTML = JSON.stringify(data);
+        document.getElementById("result").innerHTML = JSON.stringify(data);
 
         // var result = document.getElementById("result");
         // // for (var i = 0; i < data.length; i++) {
