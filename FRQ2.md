@@ -11,7 +11,7 @@
   
   function Person() {
     let personId = prompt("Enter a person id");
-    const urlStart = "https://hetvitrivedi.tk/api/person/";
+    const urlStart = "https://sarayu.tk/api/person/";
     const url = urlStart + personId;
 
     fetch(url)
@@ -21,7 +21,7 @@
         console.log(typeof data);
         console.log(JSON.stringify(data))
 
-        document.getElementById("result").innerHTML = JSON.stringify(data);
+        document.getElementById("result).innerHTML = JSON.stringify(data);
 
         // var result = document.getElementById("result");
         // // for (var i = 0; i < data.length; i++) {
