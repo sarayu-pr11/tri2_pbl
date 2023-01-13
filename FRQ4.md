@@ -4,7 +4,7 @@
 
 function generate() {
     console.log("button clicked");
-    fetch("https://hetvitrivedi.tk/api/lightboard/", {"method": "GET"})
+    fetch("https://sarayu.tk/api/lightboard/", {"method": "GET"})
     // response is a RESTful "promise" on any successful fetch
     .then(response => {
         // check for response errors
@@ -56,7 +56,7 @@ function generateSize() {
     let length = document.getElementById("inputLength").value;
 
     console.log("button2 clicked");
-    fetch("https://hetvitrivedi.tk/api/lightboard/create/" + width + "/" + length, {"method": "GET"})
+    fetch("https://sarayu.tk/api/lightboard/create/" + width + "/" + length, {"method": "GET"})
     // response is a RESTful "promise" on any successful fetch
     .then(response => {
         // check for response errors
@@ -112,7 +112,7 @@ function generateSize() {
 </div>
 
 <br>
-<h3> Or, enter length and width for desired lightboard below </h3>
+<!--<h3> Or, enter length and width for desired lightboard below </h3>  -->
 
 <!--<input id="inputWidth" placeholder="Enter a width">
 <input id="inputLength" placeholder="Enter a length">
