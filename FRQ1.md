@@ -14,18 +14,18 @@ function getYear2(){
 }
 
 function getYear3(){
-    let inputYear2 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear3 = document.getElementById("inputYear3").value;
+    return inputYear3;
 }
 
 function getYear4(){
-    let inputYear2 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear4 = document.getElementById("inputYear4").value;
+    return inputYear4;
 }
 
 function getYear5(){
-    let inputYear2 = document.getElementById("inputYear2").value;
-    return inputYear2;
+    let inputYear5 = document.getElementById("inputYear5").value;
+    return inputYear5;
 }
 
 function getMonth(){
@@ -36,6 +36,21 @@ function getMonth(){
 function getDay(){
     let inputDay = document.getElementById("inputDay").value;
     return inputDay;
+}
+
+function getYear6(){
+    let inputYear6 = document.getElementById("inputYear6").value;
+    return inputYear6;
+}
+
+function getMonth2(){
+    let inputMonth2 = document.getElementById("inputMonth2").value;
+    return inputMonth2;
+}
+
+function getDay2(){
+    let inputDay2 = document.getElementById("inputDay2").value;
+    return inputDay2;
 }
 
 function isLeapYear(year) {
@@ -93,7 +108,26 @@ function dayOfYear(month, day, year5) {
 
         console.log(data);
 
+<<<<<<< HEAD
         result.innerHTML = "Day of year of  " + month + "/" + day + "/" + "/" + year5 + ": " +data.dayOfYear;
+=======
+        result.innerHTML = "Day of year of  " + month + "/" + day  + "/" + year + ": " +data.dayOfYear;
+
+    })
+}
+
+function dayOfWeek(month, day, year) {
+    result = document.getElementById("dayOfWeekResult");
+
+    // Fetch data from API
+    fetch('https://sarayu.tk/api/calendar/dayOfWeek/' + month + '/'+ day + '/' + year)
+    .then(response => response.json())
+    .then(data => {
+
+        console.log(data);
+
+        result.innerHTML = "Day of week of  " + month + "/" + day + "/" + "/" + year + ": " +data.dayOfWeek;
+>>>>>>> 72608854e3b706e7bd29b5da9bc1075512837030
 
     })
 }
@@ -108,18 +142,25 @@ function dayOfYear(month, day, year5) {
 
 ### Check what day of week is the first day of the year (firstDayOfYear)
 <input id="inputYear2" placeholder="Input a Year">
-<button onclick="firstDayOfYear(getYear())">Submit</button>
+<button onclick="firstDayOfYear(getYear2())">Submit</button>
 <p id="firstDayOfYearResult"></p>
 
 ### Check number of leap years between 2 years (numberOfLeapYears)
 <input id="inputYear3" placeholder="Input Year 1">
 <input id="inputYear4" placeholder="Input Year 2">
-<button onclick="numberOfLeapYears(getYear(), getYear2())">Submit</button>
+<button onclick="numberOfLeapYears(getYear3(), getYear4())">Submit</button>
 <p id="numberOfLeapYearsResult"></p>
 
 ### Check what day of year a date is (dayOfYear)
 <input id="inputMonth" placeholder="Input Month">
 <input id="inputDay" placeholder="Input Day">
 <input id="inputYear5" placeholder="Input Year">
-<button onclick="numberOfLeapYears(getMonth(), getDay(), getYear5())">Submit</button>
+<button onclick="dayOfYear(getMonth(), getDay(), getYear5())">Submit</button>
 <p id="dayOfYearResult"></p>
+
+### Check what day of week a date is (dayOfWeek)
+<input id="inputMonth2" placeholder="Input Month">
+<input id="inputDay2" placeholder="Input Day">
+<input id="inputYear6" placeholder="Input Year">
+<button onclick="dayOfWeek(getMonth2(), getDay2(), getYear6())">Submit</button>
+<p id="dayOfWeekResult"></p>
