@@ -28,7 +28,7 @@
 <img width="323" alt="image" src="https://user-images.githubusercontent.com/89225474/212836936-21263823-e4de-4d01-87ec-022297b700e7.png">
 
 #### Meal Plan
-<img width="397" alt="image" src="https://user-images.githubusercontent.com/89225474/212837075-d26c5ea0-aa88-4ce7-b0b3-5b33ebbd23ee.png">
+<img width="397" alt="image" src="https://user-images.githubusercontent.com/89223922/213979145-deaf7cf2-073b-4b71-a18f-95fca479a3bb.png">
 
 #### Login
 <img width="395" alt="image" src="https://user-images.githubusercontent.com/89225474/212837179-0e5c5ad5-8b1e-42aa-a8fb-32dd71a11f49.png">
