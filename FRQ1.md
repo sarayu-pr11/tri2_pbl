@@ -68,46 +68,49 @@ function isLeapYear(year) {
     })
 }
 
-function firstDayOfYear(year) {
-    result = document.getElementById("firstDayOfYearResult");
+function firstDayOfYear(year2) {
+    result2 = document.getElementById("firstDayOfYearResult");
 
     // Fetch data from API
-    fetch('https://sarayu.tk/api/calendar/firstDayOfYear/' + year)
+    fetch('https://sarayu.tk/api/calendar/firstDayOfYear/' + year2)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
-        result.innerHTML = "Week day of first day of " + year + ": " + data.firstDayOfYear;
+        result2.innerHTML = "Week day of first day of " + year2 + ": " + data.firstDayOfYear;
 
     })
 }
 
-function numberOfLeapYears(year, year2) {
-    result = document.getElementById("numberOfLeapYearsResult");
+function numberOfLeapYears(year3, year4) {
+    result3 = document.getElementById("numberOfLeapYearsResult");
 
     // Fetch data from API
-    fetch('https://sarayu.tk/api/calendar/numberOfLeapYears/' + year + '/'+ year2)
+    fetch('https://sarayu.tk/api/calendar/numberOfLeapYears/' + year3 + '/'+ year4)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
-        result.innerHTML = "Number of leap years between  " + year + " and " + year2 + ": " + data.numberOfLeapYears;
+        result3.innerHTML = "Number of leap years between  " + year3 + " and " + year4 + ": " + data.numberOfLeapYears;
 
     })
 }
 
-function dayOfYear(month, day, year) {
+function dayOfYear(month, day, year5) {
     result = document.getElementById("dayOfYearResult");
 
     // Fetch data from API
-    fetch('https://sarayu.tk/api/calendar/dayOfYear/' + month + '/'+ day + '/' + year)
+    fetch('https://sarayu.tk/api/calendar/dayOfYear/' + month + '/'+ day + '/' + year5)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
+<<<<<<< HEAD
+        result.innerHTML = "Day of year of  " + month + "/" + day + "/" + "/" + year5 + ": " +data.dayOfYear;
+=======
         result.innerHTML = "Day of year of  " + month + "/" + day  + "/" + year + ": " +data.dayOfYear;
 
     })
@@ -124,6 +127,7 @@ function dayOfWeek(month, day, year) {
         console.log(data);
 
         result.innerHTML = "Day of week of  " + month + "/" + day + "/" + "/" + year + ": " +data.dayOfWeek;
+>>>>>>> 72608854e3b706e7bd29b5da9bc1075512837030
 
     })
 }
