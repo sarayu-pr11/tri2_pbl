@@ -1,16 +1,43 @@
-<table>
-    <tr>
-        <td><a href="{{site.baseurl}}/">Home</a></td>
-        <td>
-            <div class="dropdown">
-                <button class="dropdown-button">FRQs</button>
-                <div class="dropdown-options">
-                    <a href="{{site.baseurl}}/FRQ1">FRQ #1</a>
-                    <a href="{{site.baseurl}}/FRQ2">FRQ #2</a>
-                    <a href="{{site.baseurl}}/FRQ3">FRQ #3</a>
-                    <a href="{{site.baseurl}}/FRQ4">FRQ #4</a>
-                </div>
-            </div>
-        </td>
-    </tr>
-</table>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{site.baseurl}}/">
+        Meal Project
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{{site.baseurl}}/">Home</a>
+  
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">FRQs</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{site.baseurl}}/FRQ1">FRQ #1</a>
+            <a class="navbar-item" href="{{site.baseurl}}/FRQ2">FRQ #2</a>
+            <a class="navbar-item" href="{{site.baseurl}}/FRQ3">FRQ #3</a>
+            <a class="navbar-item" href="{{site.baseurl}}/FRQ4">FRQ #4</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
