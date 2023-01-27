@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 theme: jekyll-theme-tactile
 title: "Food"
-=======
-remote_theme: chrisrhymes/bulma-clean-theme
-title: "Food Website"
->>>>>>> d71cb4e1bc2f215c542ed8b2e221d0981e26fe8e
-description: "Food Website"
-gitorg: "https://github.com/sarayu-pr11/stats"
-description: "Food Website"
+gitorg: "https://github.com/sarayu.pr11/stats"
+
