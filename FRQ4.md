@@ -81,7 +81,7 @@ function generateSize() {
     let length = document.getElementById("inputLength").value;
 
     console.log("button2 clicked");
-    fetch("https://sarayu.tk/api/lightboard/create/" + width + "/" + length, {"method": "GET"})
+    fetch("https://hetvitrivedi.tk/api/lightboard/create/" + width + "/" + length, {"method": "GET"})
     // response is a RESTful "promise" on any successful fetch
     .then(response => {
         // check for response errors
