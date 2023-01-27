@@ -1,4 +1,4 @@
-theme: jekyll-theme-tactile
+remote_theme: chrisrhymes/bulma-clean-theme
 title: "Food Website"
 description: "Food Website"
 gitorg: "https://github.com/sarayu-pr11/stats"
