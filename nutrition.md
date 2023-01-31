@@ -11,7 +11,7 @@ System.out.println(response.body());
 
 
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
-    ### <b>Ingredient</b>
+    ### <w>Ingredient</w>
     <input id="ingredient" placeholder="Input Ingredient">
     <input id="amount" placeholder="Input Amount">
     <button onclick="fetch()">Submit</button>
@@ -24,6 +24,7 @@ System.out.println(response.body());
 <style>
 b { color: blue }
 g { color: grey }
+w { color: #eeeee4 }
 
 // resets
 s { text-decoration:none; } //strike-through
