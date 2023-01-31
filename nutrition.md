@@ -9,15 +9,26 @@ HttpRequest request = HttpRequest.newBuilder()
 HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 System.out.println(response.body());
 
-### <b>Ingredient</b>
-<input id="ingredient" placeholder="Input Ingredient">
-<input id="amount" placeholder="Input Amount">
-<button onclick="fetch()">Submit</button>
 
-### <g>Nutrition</b>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+    ### <b>Ingredient</b>
+    <input id="ingredient" placeholder="Input Ingredient">
+    <input id="amount" placeholder="Input Amount">
+    <button onclick="fetch()">Submit</button>
+</div>
+
+
+### <g>Nutrition</g>
 <p id="Result"></p>
 
 <style>
 b { color: blue }
 g { color: grey }
+
+// resets
+s { text-decoration:none; } //strike-through
+em { font-style: normal; font-weight: bold; } //italic emphasis
 </style>
+
+
+
