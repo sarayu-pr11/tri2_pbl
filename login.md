@@ -15,7 +15,7 @@
         console.log(data);
 
         fetch(
-          `http://csatri1.tk/authenticate`, {method: "POST", mode: 'cors',cache: 'default', credentials: 'same-origin', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
+          `http://csatri1.tk/authenticate`, {method: "POST", cache: 'default', credentials: 'same-origin', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
           .then((data) => {
             console.log(data);
             if (data.status == 200) {
