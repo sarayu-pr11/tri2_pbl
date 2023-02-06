@@ -17,8 +17,6 @@
         let dob = document.getElementById("dob").value;
         // console.log(email);
 
-        console.log(gender);
-        console.log(dob);
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 data = {email: email, password: password, name: name, dob: dob}
