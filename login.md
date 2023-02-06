@@ -18,11 +18,11 @@
           `http://csatri1.tk/authenticate`, {method: "POST", cache: 'default', credentials: 'same-origin', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
           .then((data) => {
             console.log(data);
-            if (data.status == 200) {
+            if (data.status == 401) {
+              alert("Invalid credentials");
+            } else {
               alert("You are logged in!");
               window.location.href = "{{site.baseurl}}/";
-            } else {
-              alert("Invalid credentials");
             }
           });
       }
