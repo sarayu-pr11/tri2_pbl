@@ -1,13 +1,23 @@
 ## Nutrition 
 
-HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=apple"))
-		.header("X-RapidAPI-Key", "f877084053msh82cfa972b631ab7p1c4893jsn442e2f514bb0")
-		.header("X-RapidAPI-Host", "edamam-food-and-grocery-database.p.rapidapi.com")
-		.method("GET", HttpRequest.BodyPublishers.noBody())
-		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+<script>
+
+function getNutrition(foodName) {
+    result = document.getElementById("getNutritionResult");
+
+    // Fetch data from API
+    fetch('https://sarayu.tk/api/nutrition/'foodName)
+    .then(response => response.json())
+    .then(data => {
+
+        console.log(data);
+
+        result.innerHTML = foodName + " calories: " + data.getNutrition;
+
+    })
+}
+
+</script>
 
 
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
@@ -31,6 +41,10 @@ w { color: #eeeee4 }
 s { text-decoration:none; } //strike-through
 em { font-style: normal; font-weight: bold; } //italic emphasis
 </style>
+
+
+
+
 
 
 
