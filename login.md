@@ -19,6 +19,7 @@
           .then((data) => {
             console.log(data);
             if (data.status == 200) {
+              alert("You are logged in!");
               window.location.href = "{{site.baseurl}}/";
             } else {
               alert("Invalid credentials");
