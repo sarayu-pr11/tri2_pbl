@@ -6,6 +6,8 @@
     <button type="submit" onclick="loginForm()">Submit</button>
 </div>
 
+<p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
+
 <script>
     function loginForm() {
         let email = document.getElementById("email").value;
