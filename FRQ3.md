@@ -1,4 +1,4 @@
-## Calculator
+<!-- ## Calculator
 ### Click calculate and input an expression
 
 <button onclick="calculator()">Calculate</button>
@@ -26,4 +26,4 @@
       })
       
 }
-</script>
+</script> -->

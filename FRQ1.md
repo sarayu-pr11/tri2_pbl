@@ -1,4 +1,4 @@
-## Calendar
+<!-- ## Calendar
 <p id="test"></p>
 
 <script>
@@ -163,4 +163,4 @@ function dayOfWeek(month, day, year) {
 <input id="inputDay2" placeholder="Input Day">
 <input id="inputYear6" placeholder="Input Year">
 <button onclick="dayOfWeek(getMonth2(), getDay2(), getYear6())">Submit</button>
-<p id="dayOfWeekResult"></p>
+<p id="dayOfWeekResult"></p> -->

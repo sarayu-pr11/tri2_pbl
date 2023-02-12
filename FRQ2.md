@@ -1,4 +1,3 @@
-## Person.
 
 <button onclick="Person()">Enter data</button>
 
