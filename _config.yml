@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 title: Yumi
+=======
+theme: jekyll-theme-tactile
+title: "YUMI"
+gitorg: "https://github.com/sarayu.pr11/yumi"
+>>>>>>> 57dd605c11b017bd3ad3d2a8c5db0ac2dacbd0b8
 
 
 theme: minima

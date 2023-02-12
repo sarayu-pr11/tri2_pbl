@@ -19,29 +19,6 @@
  </div>
 <div id=“table-container”></div>
 <script>
-<<<<<<< HEAD
-const tableContainer = document.getElementById(“table-container”);
-// Generate a button
-const generateButton = document.getElementById(‘generate-button’);
-// Create a brand new table every time clicked
-function newTable() {
-  let numCols = document.getElementById(“numCols”).value;
-  let numRows = document.getElementById(“numRows”).value;
-  const API_URL = `https://sarayu.tk/lightboard/`;
-  fetch(API_URL)
-    .then(response => response.json())
-    .then(data => {
-      // Clear the table container
-        const table = document.createElement(‘table’);
-        table.style.width = ’50%’;
-        table.style.margin = ‘0 auto’;
-        let currentRow;
-        for (const { row, column, light } of data) {
-        if (row !== currentRow) {
-            currentRow = row;
-            const tr = document.createElement(‘tr’);
-            table.appendChild(tr);
-=======
 
 function generate() {
     console.log("button clicked");
@@ -52,7 +29,6 @@ function generate() {
         if (response.status !== 200) {
             error("GET API response failure: " + response.status)
             return;  // api failure
->>>>>>> 72608854e3b706e7bd29b5da9bc1075512837030
         }
         // Make a cell with RGB color input
         const td = document.createElement(‘td’);
@@ -71,10 +47,6 @@ function generate() {
     tableContainer.appendChild(table);
     });
 }
-<<<<<<< HEAD
-generateButton.addEventListener(‘click’, newTable);
-</script>
-=======
 
 function generateSize() {
     let width = document.getElementById("inputWidth").value;
@@ -144,4 +116,7 @@ function generateSize() {
 <button onclick="generateSize()">Generate with size</button>
 <div id="result2">
 </div>    -->
+<<<<<<< HEAD
 >>>>>>> 72608854e3b706e7bd29b5da9bc1075512837030 -->
+=======
+>>>>>>> 57dd605c11b017bd3ad3d2a8c5db0ac2dacbd0b8
