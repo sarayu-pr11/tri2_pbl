@@ -64,6 +64,7 @@ function isLeapYear(year) {
         console.log(data);
 
         result.innerHTML = "Is " + year + " a leap year: " + data.isLeapYear;
+
     })
 }
 
@@ -78,6 +79,7 @@ function firstDayOfYear(year2) {
         console.log(data);
 
         result2.innerHTML = "Week day of first day of " + year2 + ": " + data.firstDayOfYear;
+
     })
 }
 
@@ -92,6 +94,7 @@ function numberOfLeapYears(year3, year4) {
         console.log(data);
 
         result3.innerHTML = "Number of leap years between  " + year3 + " and " + year4 + ": " + data.numberOfLeapYears;
+
     })
 }
 
@@ -105,21 +108,27 @@ function dayOfYear(month, day, year5) {
 
         console.log(data);
 
-        result.innerHTML = "Day of year of  " + month + "/" + day + "/" + year5 + ": " +data.dayOfYear;
+<<<<<<< HEAD
+        result.innerHTML = "Day of year of  " + month + "/" + day + "/" + "/" + year5 + ": " +data.dayOfYear;
+=======
+        result.innerHTML = "Day of year of  " + month + "/" + day  + "/" + year + ": " +data.dayOfYear;
+
     })
 }
 
-function dayOfWeek(month2, day2, year6) {
+function dayOfWeek(month, day, year) {
     result = document.getElementById("dayOfWeekResult");
 
     // Fetch data from API
-    fetch('https://sarayu.tk/api/calendar/dayOfWeek/' + month2 + '/'+ day2 + '/' + year6)
+    fetch('https://sarayu.tk/api/calendar/dayOfWeek/' + month + '/'+ day + '/' + year)
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
 
-        result.innerHTML = "Day of week of  " + month2 + "/" + day2 + "/" + year6 + ": " +data.dayOfWeek;
+        result.innerHTML = "Day of week of  " + month + "/" + day + "/" + "/" + year + ": " +data.dayOfWeek;
+>>>>>>> 72608854e3b706e7bd29b5da9bc1075512837030
+
     })
 }
 
