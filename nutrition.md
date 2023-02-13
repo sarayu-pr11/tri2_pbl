@@ -13,7 +13,6 @@ function getNutrition(foodName) {
         console.log(data);
 
         result.innerHTML = foodName + " calories: " + data.getNutrition;
-
     })
 }
 
@@ -23,13 +22,12 @@ function getNutrition(foodName) {
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
     <w>Ingredient</w>
     <input id="ingredient" placeholder="Input Ingredient">
-    <input id="amount" placeholder="Input Amount">
-    <button onclick="fetch()">Submit</button>
+    <button onclick="getNutrition()">Submit</button>
 </div>
 
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
     <w>Nutrition</w>
-    <p id="Result"></p>
+    <p id="getNutritionResult"></p>
 </div>
 
 <style>
