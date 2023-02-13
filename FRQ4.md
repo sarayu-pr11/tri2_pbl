@@ -1,4 +1,4 @@
-
+<!-- 
 <h1 style=“text-align: center”>Our FRQs</h1>
 <div id=“title”>
 </div>
@@ -116,3 +116,7 @@ function generateSize() {
 <button onclick="generateSize()">Generate with size</button>
 <div id="result2">
 </div>    -->
+<<<<<<< HEAD
+>>>>>>> 72608854e3b706e7bd29b5da9bc1075512837030 -->
+=======
+>>>>>>> 57dd605c11b017bd3ad3d2a8c5db0ac2dacbd0b8

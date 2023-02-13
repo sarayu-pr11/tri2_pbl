@@ -2,13 +2,8 @@
 
 <script>
 
-function getFood(){
-    let inputFood = document.getElementById("inputFood").value;
-    return inputFood;
-}
-
-function findCalories(food) {
-    result = document.getElementById("findCaloriesResult");
+function getNutrition(foodName) {
+    result = document.getElementById("getNutritionResult");
 
     // Fetch data from API
     fetch('https://sarayu.tk/api/nutrition/findCalories/"'+food+'"')
@@ -17,7 +12,8 @@ function findCalories(food) {
 
         console.log(data);
 
-        result.innerHTML = "calories in " + food + data.findCalories;
+        result.innerHTML = foodName + " calories: " + data.getNutrition;
+
     })
 }
 
@@ -25,10 +21,15 @@ function findCalories(food) {
 
 
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
-    <w>Calorie Calculator</w>
-    <input id="inputFood" placeholder="Input Food">
-    <button onclick="findCalories(getFood())">Submit</button>
-    <p id="findCaloriesResult"></p>
+    <w>Ingredient</w>
+    <input id="ingredient" placeholder="Input Ingredient">
+    <input id="amount" placeholder="Input Amount">
+    <button onclick="fetch()">Submit</button>
+</div>
+
+<div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+    <w>Nutrition</w>
+    <p id="Result"></p>
 </div>
 
 <style>

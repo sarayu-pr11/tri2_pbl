@@ -11,7 +11,6 @@
     <![endif]-->
 
 {% seo %}
-    {% include head-custom.html %}
   </head>
 
   <body>
@@ -22,6 +21,7 @@
           <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
           <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
         </header>
+        {% include home.html %}
         <section id="downloads" class="clearfix">
           {% if site.show_downloads %}
           <a href="{{ site.github.zip_url }}" id="download-zip" class="button"><span>Download .zip</span></a>
@@ -34,7 +34,6 @@
           <a href="{{ site.github.owner_url }}" id="view-on-github" class="button"><span>View on GitHub</span></a>
 	  {% endif %}
 	{% endif %}
-	{% include home.html %}
         </section>
         <hr>
         <section id="main_content">
