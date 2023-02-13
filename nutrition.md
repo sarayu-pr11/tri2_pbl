@@ -22,7 +22,7 @@ function getNutrition(foodName) {
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
     <w>Ingredient</w>
     <input id="ingredient" placeholder="Input Ingredient">
-    <button onclick="getNutrition()">Submit</button>
+    <button onclick="getNutrition(ingredient)">Submit</button>
 </div>
 
 <div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
