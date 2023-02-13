@@ -11,7 +11,7 @@ function findCalories(food) {
     result = document.getElementById("findCaloriesResult");
 
     // Fetch data from API
-    fetch('https://sarayu.tk/api/nutrition/findCalories/'+food)
+    fetch('https://sarayu.tk/api/nutrition/findCalories/"'+food+'"')
     .then(response => response.json())
     .then(data => {
 
