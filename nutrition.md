@@ -6,7 +6,7 @@ function getNutrition(foodName) {
     result = document.getElementById("getNutritionResult");
 
     // Fetch data from API
-    fetch('https://sarayu.tk/api/nutrition/findCalories/"'+food+'"')
+    fetch('https://csatri1.tk/api/nutrition/findCalories/"'+food+'"')
     .then(response => response.json())
     .then(data => {
 
