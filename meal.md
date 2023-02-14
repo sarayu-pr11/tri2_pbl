@@ -1,22 +1,18 @@
-
-<!DOCTYPE html>
 <html>
   <head>
     <title>Meal Planner</title>
   </head>
   <body>
+    <!-- <button id="deleteBtn">Delete Meal</button> -->
     <table id="meal-table">
       <thead>
-        <tr>
           <th></th>
           <th>Breakfast</th>
           <th>Snack</th>
           <th>Lunch</th>
           <th>Snack</th>
           <th>Dinner</th>
-        </tr>
       </thead>
-      <tbody>
         <tr>
           <td>Monday</td>
           <td class="meal-cell" data-day="Monday" data-meal="Breakfast"></td>
@@ -33,6 +29,7 @@
           <td class="meal-cell" data-day="Tuesday" data-meal="Snack"></td>
           <td class="meal-cell" data-day="Tuesday" data-meal="Dinner"></td>
         </tr>
+        <tr>
         <td>Wednesday</td>
         <td class="meal-cell" data-day="Wednesday" data-meal="Breakfast"></td>
         <td class="meal-cell" data-day="Wednesday" data-meal="Snack"></td>
@@ -48,6 +45,7 @@
           <td class="meal-cell" data-day="Thursday" data-meal="Snack"></td>
           <td class="meal-cell" data-day="Thursday" data-meal="Dinner"></td>
         </tr>
+        <tr>
         <td>Friday</td>
         <td class="meal-cell" data-day="Friday" data-meal="Breakfast"></td>
         <td class="meal-cell" data-day="Friday" data-meal="Snack"></td>
@@ -72,7 +70,6 @@
           <td class="meal-cell" data-day="Sunday" data-meal="Dinner"></td>
         </tr>
         <!-- Add rows for the rest of the week -->
-      </tbody>
     </table>
     <script>
       const mealTable = document.querySelector("#meal-table");
@@ -87,7 +84,7 @@
         if (!name || !description) {
           return;
         }
-        const response = await fetch("/meals", {
+        const response = await fetch("https://csatri1.tk/meals", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -100,36 +97,54 @@
         }
         event.target.textContent = name;
       });
-
-    // Save the updated data to local storage
-    const meals = JSON.parse(localStorage.getItem("meals")) || [];
+        const deleteBtn = document.getElementById("deleteBtn");
+        deleteBtn.addEventListener("click", function() {
+        const mealName = prompt("Enter the name of the meal to delete:");
+        if (!mealName) {
+          return;
+        }
+        const endpoint = `https://csatri1.tk/meals/${mealName}`;
+        fetch(endpoint, {
+          method: "DELETE"
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Failed to delete meal");
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log(data);
+            alert("Meal deleted successfully");
+          })
+          .catch(error => {
+            console.error(error);
+            alert("Failed to delete meal");
+          });
+      });    
+         const meals = JSON.parse(localStorage.getItem("meals")) || [];
     meals.push({ day, meal, name, description });
     localStorage.setItem("meals", JSON.stringify(meals));
-
-  // Load data from local storage when the page loads
   window.addEventListener("load", () => {
     const meals = JSON.parse(localStorage.getItem("meals")) || [];
     meals.forEach((meal) => {
       const cell = document.querySelector(
         `td[data-day="${meal.day}"][data-meal="${meal.meal}"]`
       );
-      localStorage.clear();
-
-
+  //     localStorage.clear();
     });
   });
     </script>
   </body>
+
   <style>
     table {
   border-collapse: collapse;
 }
-
 th, td {
   border: 1px solid black;
   padding: 8px;
 }
-
 th {
   background-color: lightgray;
 }
