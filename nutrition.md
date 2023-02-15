@@ -83,9 +83,9 @@ w { color: #eeeee4 }
  	<script>
         // prepare fetch urls
         // const club_url = "http://localhost:8192/api/club";
-        const discussions_url = "https://csatri1.tk/api/nutritionstorage";
-        const get_url = nutritionstorage_url + "/";
-        const nutritionstorageContainer = document.getElementById("nutritionstorage");
+        const nut_url = "https://csatri1.tk/api/nut";
+        const get_url = nut_url + "/";
+        const nutContainer = document.getElementById("nut");
         // prepare fetch GET options
         const options = {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -123,7 +123,7 @@ w { color: #eeeee4 }
                     tr.appendChild(calories);
                     tr.appendChild(category);
                     // add row to table
-                    discussionsContainer.appendChild(tr);
+                    nutContainer.appendChild(tr);
                 }    
             })
         })
@@ -140,11 +140,10 @@ w { color: #eeeee4 }
             const td = document.createElement("td");
             td.innerHTML = err;
             tr.appendChild(td);
-            discussionsContainer.appendChild(tr);
+            nutContainer.appendChild(tr);
         }
     </script>
 <body>
-
 
 
 
