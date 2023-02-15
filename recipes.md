@@ -1,5 +1,5 @@
 ---
-title: Recipe Catalogue
+title: Add Recipes
 layout: default
 permalink: /recipes/ 
 
@@ -18,7 +18,7 @@ permalink: /recipes/
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center">Recipe Catalogue</h1>
+      <h1 class="text-center">Add a Recipe!</h1>
       <form onsubmit="handleClick(); return false;">
         <div class="form-group">
           <input type="text" class="form-control" id="object" name="object" placeholder="Object">
@@ -39,7 +39,7 @@ permalink: /recipes/
           <input type="file" id="image" name="image">
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-sm">Add Listing</button>
+          <button type="submit" class="btn btn-primary btn-sm">Add Recipe</button>
         </div>
       </form>
     </div>
@@ -96,7 +96,7 @@ permalink: /recipes/
 <script>
   function handleClick() {
     if (window.confirm("Add your recipe to your catalogue!")) {
-      window.location.href = "https://sarayu-pr11.github.io/tri2_pbl/recipes";
+      window.location.href = "https://sarayu-pr11.github.io/tri2_pbl/recipecatalogue";
     }
     console.log("test");
     var requestOptions = {
