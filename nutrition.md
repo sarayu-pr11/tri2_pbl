@@ -83,7 +83,7 @@ w { color: #eeeee4 }
  	<script>
         // prepare fetch urls
         // const club_url = "http://localhost:8192/api/club";
-        const nut_url = "https://csatri1.tk/api/nut/";
+        const nut_url = "https://csatri1.tk/api/nut";
         const get_url = nut_url + "/";
         const nutContainer = document.getElementById("nut");
         // prepare fetch GET options
