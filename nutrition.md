@@ -1,4 +1,3 @@
-## Nutrition 
 
 <script>
 
@@ -31,7 +30,7 @@ function findCalories(foodName) {
 </div>
 
 <div style=" text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
-    <w>Nutrition</w>
+    <w>One serving of </w>
     <w id="findCaloriesResult"></w>
 </div>
 
