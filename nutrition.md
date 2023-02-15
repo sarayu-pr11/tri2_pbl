@@ -24,20 +24,18 @@ function findCalories(foodName) {
 </script>
 
 
-<div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+<div style="background-color:#DFB379; text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
     <w>Ingredient</w>
     <input id="inputFood" placeholder="Input Ingredient">
     <button onclick="findCalories(getFood())">Submit</button>
 </div>
 
-<div style="background-color:rgba(63, 101, 209, 0.98); text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+<div style=" text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
     <w>Nutrition</w>
-    <p id="findCaloriesResult"></p>
+    <w id="findCaloriesResult"></w>
 </div>
 
 <style>
-b { color: blue }
-g { color: grey }
 w { color: #eeeee4 }
 
 // resets
