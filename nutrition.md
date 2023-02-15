@@ -22,16 +22,9 @@ function findCalories(foodName) {
 
 </script>
 
-<img id ="pic" src="/assets/images/calories.png" alt="calories" style="width:280px;height:297px;">
 
-<style>
-    #pic{
-        position:absolute;
-        left: 300px;
-    }
-</style>
 
-<div id="container" style=">
+<div id="container">
     <w>Ingredient</w>
     <input id="inputFood" placeholder="Input Ingredient">
     <button onclick="findCalories(getFood())">Submit</button>
@@ -46,11 +39,11 @@ function findCalories(foodName) {
 w { color: #eeeee4 }
 
 #container{
-    background-color:#DFB379; 
-    text-align:center; 
+    background-color: #DFB379; 
+    text-align: center; 
     vertical-align: middle; 
-    padding:40px 0; 
-    margin-top:30px
+    padding: 40px; 
+    margin-top: 30px
     border-radius: 8px;
 }
 </style>
