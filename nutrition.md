@@ -44,8 +44,8 @@ w { color: #eeeee4 }
     vertical-align: middle; 
     padding: 40px; 
     margin-top: 30px;
-    height: 150px;
-    border-radius: 7px;
+    margin-bottom: 30px;
+    border-radius: 10px;
 }
 </style>
 
