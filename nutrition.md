@@ -16,7 +16,7 @@ function findCalories(foodName) {
 
         console.log(data);
 
-        result.innerHTML = foodName + " calories: " + data.findCalories;
+        result.innerHTML = "one serving of " + foodName + " calories: " + data.findCalories;
     })
 }
 
@@ -31,13 +31,16 @@ function findCalories(foodName) {
 </div>
 
 <div style=" text-align:center; vertical-align: middle; padding:10px; margin-top:30px">
-    <w>One serving of </w>
     <w id="findCaloriesResult"></w>
 </div>
 
 <style>
 w { color: #eeeee4 }
 
+#container{
+    border-radius: 10px;
+    height: 150px;
+}
 
 </style>
 
