@@ -96,7 +96,7 @@ permalink: /recipes/
 <script>
   function handleClick() {
     if (window.confirm("Add your recipe to your catalogue!")) {
-      window.location.href = "https://sarayu-pr11.github.io/tri2_pbl/recipecatalogue";
+      window.location.href = "https://sarayu-pr11.github.io/tri2_pbl/recipes/";
     }
     console.log("test");
     var requestOptions = {
