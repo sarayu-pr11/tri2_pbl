@@ -31,7 +31,7 @@ function findCalories(foodName) {
     }
 </style>
 
-<div style="background-color:#DFB379; text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+<div id="container" style=">
     <w>Ingredient</w>
     <input id="inputFood" placeholder="Input Ingredient">
     <button onclick="findCalories(getFood())">Submit</button>
@@ -45,9 +45,14 @@ function findCalories(foodName) {
 <style>
 w { color: #eeeee4 }
 
-// resets
-s { text-decoration:none; } //strike-through
-em { font-style: normal; font-weight: bold; } //italic emphasis
+#container{
+    background-color:#DFB379; 
+    text-align:center; 
+    vertical-align: middle; 
+    padding:40px 0; 
+    margin-top:30px
+    border-radius: 8px;
+}
 </style>
 
 
