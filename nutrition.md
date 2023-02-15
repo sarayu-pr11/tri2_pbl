@@ -22,6 +22,14 @@ function findCalories(foodName) {
 
 </script>
 
+<img id ="pic" src="/assets/images/calories.png" alt="calories" style="width:280px;height:297px;">
+
+<style>
+    #pic{
+        position:absolute;
+        left: 300px;
+    }
+</style>
 
 <div style="background-color:#DFB379; text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
     <w>Ingredient</w>
@@ -29,7 +37,7 @@ function findCalories(foodName) {
     <button onclick="findCalories(getFood())">Submit</button>
 </div>
 
-<div style=" text-align:center; vertical-align: middle; padding:40px 0; margin-top:30px">
+<div style=" text-align:center; vertical-align: middle; padding:10px 0; margin-top:30px">
     <w>One serving of </w>
     <w id="findCaloriesResult"></w>
 </div>
