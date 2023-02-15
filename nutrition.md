@@ -16,7 +16,7 @@ function findCalories(foodName) {
 
         console.log(data);
 
-        result.innerHTML = "calories in one serving of " + foodName + ": " + data.findCalories;
+        result.innerHTML = "calories in one serving of " + foodName + ": " + data.findCalories + " cal";
     })
 }
 
