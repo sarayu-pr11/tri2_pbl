@@ -1,10 +1,27 @@
----
-permalink: /recipes
----
 <html>
 <head>
   <title>Your Recipes</title>
 </head>
+
+<form id="myForm">
+    <label for="name">Name:</label>
+    <input id="name" name="name" value="Recipe">
+    <input id="postSubmit" type="submit" value="Send Me!">
+</form>
+<script>
+    const thisForm = document.getElementById('myForm');
+    thisForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(thisForm).entries()
+        const response = await fetch('http://localhost:8230/api/recipes/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(formData))
+    });
+    const result = await response.json();
+    console.log(result)
+});
+</script>
 <body>
   <table id="recipeTable">
     <thead>
@@ -55,3 +72,5 @@ th, td {
   </script>
 </body>
 </html>
+
+
