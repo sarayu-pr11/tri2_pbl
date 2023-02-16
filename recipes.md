@@ -1,10 +1,3 @@
----
-title: Add Recipes
-layout: default
-permalink: /recipes/ 
-
----
-
 <html>
 <head>
   <title>Your Recipes</title>
@@ -30,9 +23,6 @@ permalink: /recipes/
 th, td {
   border: 1px solid black;
   padding: 8px;
-}
-th {
-  background-color: lightgray;
 }
   </style>
 
