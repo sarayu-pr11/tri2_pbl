@@ -1,3 +1,6 @@
+---
+permalink: /recipes/
+---
 <html>
 <head>
   <title>Your Recipes</title>
