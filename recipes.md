@@ -120,7 +120,7 @@
 	  redirect: 'follow'
 	};
 
-	fetch("http://localhost:8230/api/recipes/create", requestOptions)
+	fetch("http://csatri1.tk/api/recipes/create", requestOptions)
 	  .then(response => response.text())
 	  .then(result => console.log(result))
 	  .catch(error => console.log('error', error));
