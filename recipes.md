@@ -3,29 +3,142 @@
   <title>Your Recipes</title>
 </head>
 
-<form id="myForm">
-    <label for="name">Name:</label>
-    <input id="name" name="name" value="">
-    <label for="description">Description:</label>
-    <input id="description" name="description" value="">
-    <label for="ingredients">Ingredients:</label>
-    <input id="ingredients" name="ingredients" value="">
-    <input id="postSubmit" type="submit" value="Send Me!">
-</form>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Add a Recipe</h1>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <input type="text" class="form-control" id="object" name="object" placeholder="Object">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="price" name="price" placeholder="Price (no decimals)">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="seller" name="seller" placeholder="Seller">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="ingredients" name="category" placeholder="Ingredients">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-sm" onclick="handleClick()">Add Recipe</button>
+        </div>
+      </form>
+    </div>
+
+  </body>
+<!-- <style>
+.dropdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.form-group
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-control
+      {
+        transition: width .2s, height, .2s;
+        border-radius: 20px;
+        border-color: #383F51;
+      }
+      .form-control:hover, .form-select
+      {
+        box-shadow: 5px 5px 5px #75768077;
+      }
+      input
+      {
+        transition: width .2s, height, .2s;
+        border-radius: 20px;
+        border-color: #383F51;
+      }
+      input:hover
+      {
+        box-shadow: 5px 5px 5px #75768077;
+      }
+      .container
+      {
+        background-color: white;
+        padding: 16px;
+        width: 50%;
+        margin: auto;
+        border-radius: 20px;;
+      }
+      .btn
+      {
+        font-size: 18px;
+        border-radius: 20px;
+        background-color: #383F51;
+        transition: width .2s, height, .2s;
+      }
+      .btn:hover
+      {
+        background-color: #3C4F76;
+        box-shadow: 5px 5px 5px #75768077;
+      }
+  </style> -->
+</html>
+
+
 <script>
-    const thisForm = document.getElementById('myForm');
-    thisForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const formData = new FormData(thisForm).entries()
-        const response = await fetch('http://localhost:8230/api/recipes/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(Object.fromEntries(formData))
-    });
-    const result = await response.json();
-    console.log(result)
-});
+  function handleClick() {
+    if (window.confirm("Click OK to add your recipe!")) {
+      window.location.href = "http://localhost:8230/api/recipes/";
+    }
+    var myHeaders = new Headers();
+	myHeaders.append("Content-Type", "application/json");
+	
+	const item = document.getElementById("object").value;
+    const price = document.getElementById("price").value;
+    const seller = document.getElementById("seller").value;
+    const description = document.getElementById("description").value;
+    const ingredients = document.getElementById("ingredients").value;
+
+	var raw = JSON.stringify({
+	  "name": item,
+	  "price": price,
+	  "seller": seller,
+	  "description": description,
+      "ingredients": ingredients,
+	});
+
+	var requestOptions = {
+	  method: 'POST',
+	  headers: myHeaders,
+	  body: raw,
+	  redirect: 'follow'
+	};
+
+	fetch("http://localhost:8230/api/recipes/create", requestOptions)
+	  .then(response => response.text())
+	  .then(result => console.log(result))
+	  .catch(error => console.log('error', error));
+	  }
 </script>
+
+
 <body>
   <table id="recipeTable">
     <thead>
