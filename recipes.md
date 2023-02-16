@@ -3,9 +3,6 @@
   <title>Your Recipes</title>
 </head>
 
-
-</head>
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,7 +34,7 @@
     </div>
 
   </body>
-<!-- <style>
+<style>
 .dropdown{
   display: flex;
   justify-content: center;
@@ -90,7 +87,7 @@
         background-color: #3C4F76;
         box-shadow: 5px 5px 5px #75768077;
       }
-  </style> -->
+  </style>
 </html>
 
 
