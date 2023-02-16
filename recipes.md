@@ -1,5 +1,5 @@
 ---
-permalink: /recipes/
+permalink: /recipes
 ---
 <html>
 <head>
