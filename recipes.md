@@ -148,7 +148,7 @@
           <th></th>
         </tr>
       </thead>
-      <thead>
+      <!-- <thead>
         <tr>
           <th>cake</th>
           <th>7</th>
@@ -156,7 +156,7 @@
           <th>sweet</th>
           <th>eggs</th>
         </tr>
-      </thead>
+      </thead> -->
     <tbody>
     </tbody>
   </table>
