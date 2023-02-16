@@ -3,7 +3,7 @@
   <title>Your Recipes</title>
 </head>
 <body>
-  <table id="recipetable">
+  <table id="recipeTable">
     <thead>
       <tr>
         <th>Name</th>
@@ -17,7 +17,7 @@
     </tbody>
   </table>
 <style>
-    #recipetable {
+    #recipeTable {
   border-collapse: collapse;
 }
 th, td {
@@ -27,9 +27,9 @@ th, td {
   </style>
 
   <script>
-    const tableBody = document.querySelector('#recipetable tbody');
+    const tableBody = document.querySelector('#recipeTable tbody');
 
-        fetch('http://csatri1.tk/api/recipes/')
+        fetch('http://localhost:8230/api/recipes/')
         .then(response => response.json())
         .then(data => {
          data.forEach(item => {
