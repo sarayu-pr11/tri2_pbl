@@ -10,7 +10,7 @@ permalink: /recipes/
   <title>Your Recipes</title>
 </head>
 <body>
-  <table id="myTable">
+  <table id="recipetable">
     <thead>
       <tr>
         <th>Name</th>
@@ -24,16 +24,16 @@ permalink: /recipes/
     </tbody>
   </table>
 <style>
-    #myTable, th, td {
+    #recipetable, th, td {
         border: 1px solid;
         width: 75%;
  }
 </style>
 
   <script>
-    const tableBody = document.querySelector('#myTable tbody');
+    const tableBody = document.querySelector('#recipetable tbody');
 
-        fetch('http://localhost:8230/api/recipes/')
+        fetch('http://csatri1.tk/api/recipes/')
         .then(response => response.json())
         .then(data => {
          data.forEach(item => {
