@@ -67,14 +67,14 @@
       {
         box-shadow: 5px 5px 5px #75768077;
       }
-      .container
+      /* .container
       {
         background-color: white;
         padding: 16px;
         width: 50%;
         margin: auto;
         border-radius: 20px;;
-      }
+      } */
       .btn
       {
         font-size: 18px;
