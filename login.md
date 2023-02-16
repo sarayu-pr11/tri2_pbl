@@ -16,21 +16,24 @@
         data = {email: email, password: password}
         console.log(data);
 
-        fetch(
-          `http://csatri1.tk/authenticate`, {
-            method: "POST",
-            mode:'no-cors',
-            cache: 'default',
-            credentials: 'same-origin',
-            headers: {"Content-Type":"application/json"}, body: JSON.stringify(data)})
-          .then((data) => {
-            console.log(data);
-            if (data.status == 401) {
-              alert("Invalid credentials");
-            } else {
-              alert("You are logged in!");
-              window.location.href = "{{site.baseurl}}/";
-            }
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+
+          var raw = JSON.stringify({
+            "email": email,
+            "password": password
           });
+
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+          };
+
+          fetch("https://csatri1.tk/authenticate", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
       }
 </script>
