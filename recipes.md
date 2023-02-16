@@ -5,7 +5,11 @@
 
 <form id="myForm">
     <label for="name">Name:</label>
-    <input id="name" name="name" value="Recipe">
+    <input id="name" name="name" value="">
+    <label for="description">Description:</label>
+    <input id="description" name="description" value="">
+    <label for="ingredients">Ingredients:</label>
+    <input id="ingredients" name="ingredients" value="">
     <input id="postSubmit" type="submit" value="Send Me!">
 </form>
 <script>
@@ -33,6 +37,24 @@
         <th>Ingredients</th>
       </tr>
     </thead>
+    <thead>
+        <tr>
+          <th>gelato</th>
+          <th>10</th>
+          <th>target</th>
+          <th>dessert</th>
+          <th></th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th>cake</th>
+          <th>7</th>
+          <th>target</th>
+          <th>sweet</th>
+          <th>eggs</th>
+        </tr>
+      </thead>
     <tbody>
     </tbody>
   </table>
