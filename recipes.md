@@ -24,11 +24,17 @@ permalink: /recipes/
     </tbody>
   </table>
 <style>
-    #recipetable, th, td {
-        border: 1px solid;
-        width: 75%;
- }
-</style>
+    #recipetable {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+th {
+  background-color: lightgray;
+}
+  </style>
 
   <script>
     const tableBody = document.querySelector('#recipetable tbody');
