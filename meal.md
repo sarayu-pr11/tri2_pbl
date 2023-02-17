@@ -3,7 +3,7 @@
     <title>Meal Planner</title>
   </head>
   <body>
-    <!-- <button id="deleteBtn">Delete Meal</button> -->
+    <button id="deleteBtn">Delete Meal</button>
     <table id="meal-table">
       <thead>
           <th></th>
@@ -99,11 +99,12 @@
       });
         const deleteBtn = document.getElementById("deleteBtn");
         deleteBtn.addEventListener("click", function() {
-        const mealName = prompt("Enter the name of the meal to delete:");
-        if (!mealName) {
+        const dayType = prompt("Enter the day of the meal to delete:");
+        const mealType = prompt("Enter the meal to delete:");
+        if (!dayType || !mealType) {
           return;
         }
-        const endpoint = `https://csatri1.tk/meals/${mealName}`;
+        const endpoint = `https://csatri1.tk/meals/${dayType}/${mealType}`;
         fetch(endpoint, {
           method: "DELETE"
         })
@@ -122,18 +123,6 @@
             alert("Failed to delete meal");
           });
       });    
-         const meals = JSON.parse(localStorage.getItem("meals")) || [];
-    meals.push({ day, meal, name, description });
-    localStorage.setItem("meals", JSON.stringify(meals));
-  window.addEventListener("load", () => {
-    const meals = JSON.parse(localStorage.getItem("meals")) || [];
-    meals.forEach((meal) => {
-      const cell = document.querySelector(
-        `td[data-day="${meal.day}"][data-meal="${meal.meal}"]`
-      );
-  //     localStorage.clear();
-    });
-  });
     </script>
   </body>
 
@@ -145,8 +134,6 @@ th, td {
   border: 1px solid black;
   padding: 8px;
 }
-th {
-  background-color: lightgray;
-}
+
   </style>
 </html>

@@ -21,17 +21,16 @@
       let dob = document.getElementById("dob").value;
       // console.log(email);
 
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+var raw = "";
 
-      var raw = "";
-
-      var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-      };
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
 
       fetch("https://csatri1.tk/api/person/post?email="+email+"&password="+password+"&name="+name+"&dob="+dob, requestOptions)
         .then(response => response.text())
