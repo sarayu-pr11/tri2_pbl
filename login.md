@@ -20,32 +20,33 @@
           data = {email: email, password: password}
           console.log(data);
 
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
 
-            var raw = JSON.stringify({
-              "email": email,
-              "password": password
-            });
+          var raw = JSON.stringify({
+            "email": email,
+            "password": password
+          });
 
-            var requestOptions = {
-              method: 'POST',
-              headers: myHeaders,
-              body: raw,
-              redirect: 'follow'
-            };
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+          };
 
-            fetch("https://csatri1.tk/authenticate", requestOptions)
-              .then(response => response.text())
-              .then(result => console.log(result))
-              .catch(error => console.log('error', error))
-              .then(error) => {
-              if (error.status == 401) {
-                alert("Invalid credentials");
-              } else {
+          fetch("https://csatri1.tk/authenticate", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error))
+            .then((response) => {
+              if (response.status == 401) {alert("Invalid credentials");}
+              else {
                 fetch("https://csatri1.tk/api/person");
                 window.location.href = "{{site.baseurl}}/loggedin";
-              }};
+              }
+            })
+          ;
         }
   </script>
 </html>
