@@ -19,26 +19,20 @@
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-data = {email: email, password: password, name: name, dob: dob}
+myHeaders.append("Cookie", "jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2J5QGdtYWlsLmNvbSIsImV4cCI6MTY3NjYxOTk2MCwiaWF0IjoxNjc2NjAxOTYwfQ.a2NI8s6AAb4DnjZ6Ywdbo-qOpW_HZEf8kxeQr6EZRzSINhurGdGlspbNX9fWKOsZMq_3MjU61KVfpScnYbEwmw");
+
+var raw = "";
+
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
-  redirect: 'manual',
-  body: JSON.stringify(data)
+  body: raw,
+  redirect: 'follow'
 };
-         fetch(
-          `https://csatri1.tk/api/person/post`,requestOptions
-        )
-          .then(response => response.text())
-  .then(result => {
-    console.log(result);
-    if (result == `${email} user created successfully`) {
-      window.location.href = "https://csatri1.tk/login";
-    } else {
-      alert("Invalid credentials");
-    }
-  })
-  .catch(error => console.log('error', error));
 
+fetch("https://csatri1.tk/api/person/post?email="+email+"&password="+password+"&name="+name+"&dob="+dob, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
     }
 </script>
