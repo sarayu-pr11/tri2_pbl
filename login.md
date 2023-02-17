@@ -1,39 +1,51 @@
-## Login
+<html>
+  <head>
+    <title>Login</title>
+  </head>
 
- <div>
-    <input type="text" id="email" name="email" placeholder="Email" required>
-    <input type="password" id="password" name="password" placeholder="Password" required>
-    <button type="submit" onclick="loginForm()">Submit</button>
-</div>
+  <body>
+    <div>
+        <input type="text" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <button type="submit" onclick="loginForm()">Submit</button>
+    </div>
+    <p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
+  </body>
 
-<p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
+  <script>
+      function loginForm() {
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
+          console.log(email);
+          data = {email: email, password: password}
+          console.log(data);
 
-<script>
-    function loginForm() {
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-        console.log(email);
-        data = {email: email, password: password}
-        console.log(data);
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
 
-          var myHeaders = new Headers();
-          myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({
+              "email": email,
+              "password": password
+            });
 
-          var raw = JSON.stringify({
-            "email": email,
-            "password": password
-          });
+            var requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+            };
 
-          var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-          };
-
-          fetch("https://csatri1.tk/authenticate", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-      }
-</script>
+            fetch("https://csatri1.tk/authenticate", requestOptions)
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error))
+              .then(error) => {
+              if (error.status == 401) {
+                alert("Invalid credentials");
+              } else {
+                fetch("https://csatri1.tk/api/person");
+                window.location.href = "{{site.baseurl}}/loggedin";
+              }};
+        }
+  </script>
+</html>
