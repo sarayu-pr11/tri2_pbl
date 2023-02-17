@@ -19,14 +19,10 @@
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Cookie", "jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2J5QGdtYWlsLmNvbSIsImV4cCI6MTY3NjYxOTk2MCwiaWF0IjoxNjc2NjAxOTYwfQ.a2NI8s6AAb4DnjZ6Ywdbo-qOpW_HZEf8kxeQr6EZRzSINhurGdGlspbNX9fWKOsZMq_3MjU61KVfpScnYbEwmw");
-
-var raw = "";
 
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
-  body: raw,
   redirect: 'follow'
 };
 
