@@ -17,7 +17,7 @@
           let email = document.getElementById("email").value;
           let password = document.getElementById("password").value;
           console.log(email);
-          data = {email: email, password: password}
+          data = {email: email, password: password};
           console.log(data);
 
           var myHeaders = new Headers();
@@ -38,16 +38,14 @@
           };
 
           fetch("https://csatri1.tk/authenticate", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error))
-            .then((response) => {
-              if (response.status == 401) {alert("Invalid credentials");}
-              else {
-                window.location.href = "{{site.baseurl}}/loggedin";
+            .then(response => {
+              if (!response.ok) {
+                  const errorMsg = 'Login error: ' + response.status;
+                  console.log(errorMsg);
+                  return;
               }
-            })
-          ;
+              window.location.href = "{{site.baseurl}}/loggedin";
+          });
         }
   </script>
 </html>
