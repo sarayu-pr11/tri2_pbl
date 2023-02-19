@@ -30,7 +30,9 @@
 
           var requestOptions = {
             method: 'POST',
+            mode: 'cors',
             headers: myHeaders,
+            credentials: 'include',
             body: raw,
             redirect: 'follow'
           };
@@ -42,7 +44,6 @@
             .then((response) => {
               if (response.status == 401) {alert("Invalid credentials");}
               else {
-                fetch("https://csatri1.tk/api/person");
                 window.location.href = "{{site.baseurl}}/loggedin";
               }
             })
