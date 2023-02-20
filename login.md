@@ -30,7 +30,6 @@
 
           var requestOptions = {
             method: 'POST',
-            mode: 'no-cors',
             headers: myHeaders,
             credentials: 'include',
             body: raw,
