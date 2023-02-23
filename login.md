@@ -31,7 +31,6 @@
           var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            credentials: 'include',
             body: raw,
             redirect: 'follow'
           };
