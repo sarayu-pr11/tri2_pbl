@@ -19,7 +19,6 @@
 
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
-          myHeaders.append("Cookie", "jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2J5QGdtYWlsLmNvbSIsImV4cCI6MTY3NzE0OTMyOCwiaWF0IjoxNjc3MTMxMzI4fQ.ureEas7OUWn3EIsOEod7-IVY9ETSFh47z0unOqCZYvzZZWNdYOAt3D7pJVUb1VbyY3v5C0L0YP_fMdyvAg1QIg");
 
           var raw = JSON.stringify({
             "email": email,
@@ -28,6 +27,7 @@
 
           var requestOptions = {
             method: 'POST',
+            mode: 'no-cors',
             headers: myHeaders,
             body: raw,
             redirect: 'follow'
