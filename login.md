@@ -36,14 +36,9 @@
           };
 
           fetch("https://csatri1.tk/authenticate", requestOptions)
-            .then(response => {
-              if (!response.ok) {
-                  const errorMsg = 'Login error: ' + response.status;
-                  console.log(errorMsg);
-                  return;
-              }
-              window.location.href = "{{site.baseurl}}/loggedin";
-          });
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
         }
   </script>
 </html>
