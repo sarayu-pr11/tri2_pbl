@@ -4,7 +4,7 @@
   </head>
 
   <body>
-  
+
     <form action="javascript:loginForm()">
         <p><label>
             <span class="email">Email:</span>
@@ -57,6 +57,7 @@
                     return;
                 }
 
+                sessionStorage.setItem("username", email);
                 window.location.href = "{{site.baseurl}}/loggedin";
             });
         }
