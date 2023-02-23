@@ -4,13 +4,27 @@
   </head>
 
   <body>
-    <div>
-      <input type="text" id="email" name="email" placeholder="Email">
-      <input type="password" id="password" name="password" required placeholder="Password">
-      <input type="text" id="name" name="name" placeholder="Name">
-      <input type="date" id="dob" name="dob" placeholder="MM-dd-yyyy">
-      <button type="submit" onclick="formSubmit()">Submit</button>
-    </div>
+    <form action="javascript:formSubmit()">
+        <p><label>
+            <span class="email">Email:</span>
+            <input type="text" id="email" name="email" placeholder="email" required>
+        </label></p>
+        <p><label>
+            <span class="password">Password:</span>
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </label></p>
+        <p><label>
+            <span class="name">Name:</span>
+            <input type="text" id="name" name="name" placeholder="name" required>
+        </label></p>
+        <p><label>
+            <span class="dob">Date Of Birth(mm-dd-yyyy):</span>
+            <input type="date" id="dob" name="dob" placeholder="MM-dd-yyyy">
+        </label></p>
+        <p>
+            <button>Sign Up</button>
+        </p>
+    </form>
   </body>
 
   <script type="text/javascript">
