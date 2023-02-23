@@ -33,13 +33,15 @@
           };
 
           fetch("https://csatri1.tk/authenticate", requestOptions)
-              .then(response => {
-              if (!response.ok) {
-                  const errorMsg = 'Login error: ' + response.status;
-                  console.log(errorMsg);
-                  return;
-              }
-              window.location.href = "{{site.baseurl}}/loggedin";
+            .then(response => {
+                if (!response.ok) {
+                    const errorMsg = 'Login error: ' + response.status;
+                    console.log(errorMsg);
+                    return;
+                }
+                
+                window.location.href = "{{site.baseurl}}/loggedin";
+            });
         }
   </script>
 </html>
