@@ -16,29 +16,24 @@
       function loginForm() {
           let email = document.getElementById("email").value;
           let password = document.getElementById("password").value;
-          console.log(email);
-          data = {email: email, password: password};
-          console.log(data);
-
-          var myHeaders = new Headers();
-          myHeaders.append("Content-Type", "application/json");
-
-          var raw = JSON.stringify({
+          var data = JSON.stringify({
             "email": email,
             "password": password
           });
 
-          var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-          };
+          var xhr = new XMLHttpRequest();
+          xhr.withCredentials = true;
 
-          fetch("https://csatri1.tk/authenticate", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+          xhr.addEventListener("readystatechange", function() {
+            if(this.readyState === 4) {
+              console.log(this.responseText);
+            }
+          });
+
+          xhr.open("POST", "https://csatri1.tk/authenticate");
+          xhr.setRequestHeader("Content-Type", "application/json");
+
+          xhr.send(data);
         }
   </script>
 </html>
