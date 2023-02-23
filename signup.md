@@ -33,14 +33,22 @@
       };
 
       fetch("https://csatri1.tk/api/person/post?email="+email+"&password="+password+"&name="+name+"&dob="+dob, requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error))
-        .then((error) => {
-          if (error.status == 401) {alert("Invalid data");} 
-          else {window.location.href = "{{site.baseurl}}/signedup";}
-        })
-      ;
+        .then(response => {
+            if (response.status == 500) {
+                const errorMsg = 'Incorrect data.  Please fill in everything correctly!';
+                alert(errorMsg);
+                console.log(errorMsg);
+                return;
+            }
+            else if (!response.ok) {
+                const errorMsg = 'Error: ' + response.status;
+                alert(errorMsg);
+                console.log(errorMsg);
+                return;
+            }
+
+            window.location.href = "{{site.baseurl}}/signedup";
+        });
     }
   </script>
 </html>
