@@ -27,16 +27,19 @@
 
           var requestOptions = {
             method: 'POST',
-            mode: 'no-cors',
             headers: myHeaders,
             body: raw,
             redirect: 'follow'
           };
 
           fetch("https://csatri1.tk/authenticate", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+              .then(response => {
+              if (!response.ok) {
+                  const errorMsg = 'Login error: ' + response.status;
+                  console.log(errorMsg);
+                  return;
+              }
+              window.location.href = "{{site.baseurl}}/loggedin";
         }
   </script>
 </html>
