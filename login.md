@@ -17,22 +17,26 @@
           let email = document.getElementById("email").value;
           let password = document.getElementById("password").value;
 
-          var settings = {
-            "url": "https://csatri1.tk/authenticate",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "Content-Type": "application/json"
-            },
-            "data": JSON.stringify({
-              "email": email,
-              "password": password
-            }),
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+          myHeaders.append("Cookie", "jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2J5QGdtYWlsLmNvbSIsImV4cCI6MTY3NzE0OTMyOCwiaWF0IjoxNjc3MTMxMzI4fQ.ureEas7OUWn3EIsOEod7-IVY9ETSFh47z0unOqCZYvzZZWNdYOAt3D7pJVUb1VbyY3v5C0L0YP_fMdyvAg1QIg");
+
+          var raw = JSON.stringify({
+            "email": email,
+            "password": password
+          });
+
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
           };
 
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-          });
+          fetch("https://csatri1.tk/authenticate", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
         }
   </script>
 </html>
