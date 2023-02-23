@@ -34,12 +34,18 @@
 
           fetch("https://csatri1.tk/authenticate", requestOptions)
             .then(response => {
-                if (!response.ok) {
+                if (response.status == 401) {
+                    const errorMsg = 'Incorrect credentials';
+                    alert(errorMsg);
+                    console.log(errorMsg);
+                    return;
+                }
+                else if (!response.ok) {
                     const errorMsg = 'Login error: ' + response.status;
                     console.log(errorMsg);
                     return;
                 }
-                
+
                 window.location.href = "{{site.baseurl}}/loggedin";
             });
         }
