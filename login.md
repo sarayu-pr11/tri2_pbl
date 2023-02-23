@@ -4,12 +4,23 @@
   </head>
 
   <body>
-    <div>
-        <input type="text" id="email" name="email" placeholder="Email" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <button type="submit" onclick="loginForm()">Submit</button>
-    </div>
+  
+    <form action="javascript:loginForm()">
+        <p><label>
+            <span class="email">Email:</span>
+            <input type="text" id="email" name="email" placeholder="email" required>
+        </label></p>
+        <p><label>
+            <span class="password">Password:</span>
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </label></p>
+        <p>
+            <button>Log in</button>
+        </p>
+    </form>
+
     <p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
+
   </body>
 
   <script>
