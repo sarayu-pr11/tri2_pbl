@@ -16,24 +16,23 @@
       function loginForm() {
           let email = document.getElementById("email").value;
           let password = document.getElementById("password").value;
-          var data = JSON.stringify({
-            "email": email,
-            "password": password
+
+          var settings = {
+            "url": "https://csatri1.tk/authenticate",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+              "email": email,
+              "password": password
+            }),
+          };
+
+          $.ajax(settings).done(function (response) {
+            console.log(response);
           });
-
-          var xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
-
-          xhr.addEventListener("readystatechange", function() {
-            if(this.readyState === 4) {
-              console.log(this.responseText);
-            }
-          });
-
-          xhr.open("POST", "https://csatri1.tk/authenticate");
-          xhr.setRequestHeader("Content-Type", "application/json");
-
-          xhr.send(data);
         }
   </script>
 </html>
