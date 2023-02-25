@@ -9,21 +9,22 @@
         <td><a href="{{site.baseurl}}/nutrition">Nutrition</a></td>
         <td><a href="{{site.baseurl}}/meal">Meal</a></td>
         <td><a href="{{site.baseurl}}/recipes"></a>Recipes</a></td>
+        <td><a href="{{site.baseurl}}/calendar"></a>Calendar</a></td>
         <td><a id="planner" href=""></a></td>
         <td><a id="one" href="{{site.baseurl}}/login">Login</a></td>
         <td><a id="two" href="{{site.baseurl}}/signup">Signup</a></td>
 
 
         <script>
-            if (sessionStorage.getItem("username") != null) {
+            if ("username" in sessionStorage) {
+                document.getElementById("planner").href="{{site.baseurl}}/planner";
+                document.getElementById("planner").innerHTML="Planner"; 
+
                 document.getElementById("one").href="{{site.baseurl}}/logout";
                 document.getElementById("one").innerHTML="Logout";
 
                 document.getElementById("two").href="";
                 document.getElementById("two").innerHTML="";
-
-                document.getElementById("planner").href="{{site.baseurl}}/calendar";
-                document.getElementById("planner").innerHTML="Calendar"; 
             }
         </script>
     </tr>
