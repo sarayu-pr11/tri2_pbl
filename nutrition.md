@@ -15,7 +15,7 @@ function findCalories(foodName) {
     result = document.getElementById("findCaloriesResult");
 
     // Fetch data from API
-    fetch('https://csatri1.tk/api/nutrition/findCalories/"'+foodName+'"')
+    fetch('https://csatri1.tk/api/nutrition/findCalories/"'+foodName+'"', {credentials: 'include'})
     .then(response => response.json())
     .then(data => {
 
@@ -92,6 +92,7 @@ w { color: #eeeee4 }
             // mode: 'cors', // no-cors, *cors, same-origin
             cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
             // credentials: 'same-origin', // include, same-origin, omit
+            credentials: 'include',
             headers: {
             'Content-Type': 'application/json'
             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -195,6 +196,7 @@ w { color: #eeeee4 }
                 // mode: 'cors', // no-cors, *cors, same-origin
                 cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
                 // credentials: 'same-origin', // include, same-origin, omit
+                credentials: 'include',
                 headers: {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',

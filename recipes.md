@@ -116,6 +116,7 @@
 	var requestOptions = {
 	  method: 'POST',
 	  headers: myHeaders,
+    credentials: 'include',
 	  body: raw,
 	  redirect: 'follow'
 	};
@@ -173,7 +174,7 @@ th, td {
   <script>
     const tableBody = document.querySelector('#recipeTable tbody');
 
-        fetch('http://localhost:8230/api/recipes/')
+        fetch('https://csatri1.tk/api/recipes/')
         .then(response => response.json())
         .then(data => {
          data.forEach(item => {
