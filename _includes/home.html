@@ -16,7 +16,7 @@
 
 
         <script>
-            if ("username" in sessionStorage) {
+            if ("username" in sessionStorage || window.location.pathname=="/logout") {
                 document.getElementById("planner").href="{{site.baseurl}}/planner";
                 document.getElementById("planner").innerHTML="Planner"; 
 
