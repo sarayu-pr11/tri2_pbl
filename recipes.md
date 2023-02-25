@@ -94,7 +94,7 @@
 <script>
   function handleClick() {
     if (window.confirm("Click OK to add your recipe!")) {
-      window.location.href = "https://sarayu-pr11.github.io/tri2_pbl/recipes";
+      location.href = "https://sarayu-pr11.github.io/tri2_pbl/recipes";
     }
     var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");

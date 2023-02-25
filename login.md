@@ -59,7 +59,7 @@
                 }
 
                 sessionStorage.setItem("username", email);
-                window.location.href = "{{site.baseurl}}/loggedin";
+                location.href = "{{site.baseurl}}/loggedin";
             });
         }
   </script>
