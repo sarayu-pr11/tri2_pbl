@@ -40,6 +40,7 @@
             method: 'POST',
             headers: myHeaders,
             body: raw,
+            credentials: 'include',
             redirect: 'follow'
           };
 
