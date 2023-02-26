@@ -40,6 +40,7 @@
             method: 'POST',
             headers: myHeaders,
             body: raw,
+            credentials: 'include',
             redirect: 'follow'
           };
 
@@ -58,7 +59,7 @@
                 }
 
                 sessionStorage.setItem("username", email);
-                window.location.href = "{{site.baseurl}}/loggedin";
+                location.href = "{{site.baseurl}}/loggedin";
             });
         }
   </script>

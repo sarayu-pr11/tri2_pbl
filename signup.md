@@ -61,7 +61,7 @@
                 return;
             }
 
-            window.location.href = "{{site.baseurl}}/signedup";
+            location.href = "{{site.baseurl}}/signedup";
         });
     }
   </script>

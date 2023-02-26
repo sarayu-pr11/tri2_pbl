@@ -15,7 +15,7 @@ function findCalories(foodName) {
     result = document.getElementById("findCaloriesResult");
 
     // Fetch data from API
-    fetch('https://csatri1.tk/api/nutrition/findCalories/"'+foodName+'"')
+    fetch('https://csatri1.tk/api/nutrition/findCalories/"'+foodName+'"', {credentials: 'include'})
     .then(response => response.json())
     .then(data => {
 

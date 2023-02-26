@@ -46,11 +46,9 @@
       <p id="signedinas"></p>
 
       <script>
-          if ((sessionStorage.getItem("username")!=null) && (location.pathname!="/logout")) {
+          if (("username" in sessionStorage) && (location.pathname!="/logout")) {
               document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("username");
           }
-
-          fetch("https://csatri1.tk/api/person/");
       </script>
     </div>
   </body>

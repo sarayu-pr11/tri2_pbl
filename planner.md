@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <h1>Meal Planner</h1>
+    <h1 id="meal-planner">Meal Planner</h1>
     <div>
-      <label for="meal-name">Meal Name:</label>
-      <input type="text" id="meal-name" />
-      <label for="day">Day:</label>
-      <input type="text" id="day" />
-      <label for="meal-type">Meal Type:</label>
-      <input type="text" id="meal-type" />
+      <input placeholder ="Meal Name" type="text" id="meal-name" />
+      <input placeholder ="Day" type="text" id="day" />
+      <input placeholder ="Meal Type" type="text" id="meal-type" />
       <button id="add-meal">Add Meal</button>
     </div>
     <table id="meal-table">
@@ -36,7 +33,7 @@
         const day = dayInput.value;
         const mealType = mealTypeInput.value;
         const meal = { name, day, mealType };
-        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, { method: "POST" })
+        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, { method: "POST", credentials: 'include' })
           .then((res) => res.json())
           .then((data) => {
             addMealToTable(data);
@@ -47,7 +44,7 @@
           .catch((err) => console.log(err));
       });
       function getMeals() {
-        fetch("https://csatri1.tk/api/planner/")
+        fetch("https://csatri1.tk/api/planner/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
             mealTable.innerHTML = "";
@@ -79,7 +76,7 @@
       function deleteMeal(meal) {
         fetch(
           "https://csatri1.tk/api/planner/delete/" + meal.id,
-          { method: "DELETE" }
+          { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
             getMeals();
@@ -88,5 +85,10 @@
       }
       getMeals();
     </script>
+    <style>
+      #meal-planner {
+        text-align:center;
+      }
+      </style>
   </body>
 </html>

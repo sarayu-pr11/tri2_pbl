@@ -86,6 +86,7 @@
         }
         const response = await fetch("https://csatri1.tk/meals", {
           method: "POST",
+          credentials: 'include',
           headers: {
             "Content-Type": "application/json",
           },
@@ -106,7 +107,8 @@
         }
         const endpoint = `https://csatri1.tk/meals/${dayType}/${mealType}`;
         fetch(endpoint, {
-          method: "DELETE"
+          method: "DELETE",
+          credentials: 'include'
         })
           .then(response => {
             if (!response.ok) {
