@@ -82,7 +82,7 @@ w { color: #eeeee4 }
         const food = foodInput.value;
         const calories = caloriesInput.value;
         const category = categoryInput.value;
-        const item = { food, calories, category };
+        const item = { id, food, calories, category };
         fetch("https://csatri1.tk/api/nut/create/" + food + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
           .then((res) => res.json())
           .then((data) => {
