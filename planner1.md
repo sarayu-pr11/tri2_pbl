@@ -63,7 +63,7 @@
       }, 1000);
       });
       function deleteMeal(id) {
-    fetch("https://csatri1.tk/api/planner/delete/" + id, { method: "DELETE", credentials: 'include'})
+    fetch("https://csatri1.tk/api/planner/delete/" + id, { method: "DELETE"})
       .catch((err) => console.log(err));
   }
       function createDeleteButton(id) {
