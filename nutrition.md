@@ -110,12 +110,13 @@ w { color: #eeeee4 }
           { method: "DELETE" , credentials: 'include'}
         )
           //.then((res) => res.json())
-          .then(() => {
+          //.then(() => {
             //getFood();
             //idInput.value = 0;
-          })
-          .catch((err) => console.log(err));
-          window.location.reload()
+          //})
+          //.catch((err) => console.log(err));
+          //window.location.reload()
+          console.log("here");
       });
       function getFood() {
         fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
