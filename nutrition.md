@@ -107,6 +107,7 @@ w { color: #eeeee4 }
           "https://csatri1.tk/api/nut/delete/" + id,
           { method: "DELETE", credentials: 'include' }
         )
+          .then((res) => res.json())
           .then(() => {
             getFood();
           })
@@ -124,6 +125,7 @@ w { color: #eeeee4 }
       }
       function addFoodToTable(item) {
         const row = document.createElement("tr");
+        const idCell = document.createElement("td");
         const foodCell = document.createElement("td");
         const caloriesCell = document.createElement("td");
         const categoryCell = document.createElement("td");
@@ -133,10 +135,12 @@ w { color: #eeeee4 }
         deleteButton.addEventListener("click", () => {
           deleteFood(item);
         });
+        idCell.textContent = item.id;
         foodCell.textContent = item.food;
         caloriesCell.textContent = item.calories;
         categoryCell.textContent = item.category;  
         deleteCell.appendChild(deleteButton);
+        row.appendChild(idCell);
         row.appendChild(foodCell);
         row.appendChild(caloriesCell);
         row.appendChild(categoryCell);
