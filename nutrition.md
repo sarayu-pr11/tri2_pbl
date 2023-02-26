@@ -92,6 +92,7 @@ w { color: #eeeee4 }
             categoryInput.value = "";
           })
           .catch((err) => console.log(err));
+          window.location.reload()
       });
       function getFood() {
         fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
