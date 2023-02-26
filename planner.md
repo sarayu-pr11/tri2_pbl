@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <h1>Meal Planner</h1>
+    <h1 id="meal-planner">Meal Planner</h1>
     <div>
-      <label for="meal-name">Meal Name:</label>
-      <input type="text" id="meal-name" />
-      <label for="day">Day:</label>
-      <input type="text" id="day" />
-      <label for="meal-type">Meal Type:</label>
-      <input type="text" id="meal-type" />
+      <input placeholder ="Meal Name" type="text" id="meal-name" />
+      <input placeholder ="Day" type="text" id="day" />
+      <input placeholder ="Meal Type" type="text" id="meal-type" />
       <button id="add-meal">Add Meal</button>
     </div>
     <table id="meal-table">
@@ -88,5 +85,10 @@
       }
       getMeals();
     </script>
+    <style>
+      #meal-planner {
+        text-align:center;
+      }
+      </style>
   </body>
 </html>
