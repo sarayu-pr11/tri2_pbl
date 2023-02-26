@@ -125,7 +125,7 @@ w { color: #eeeee4 }
       }
       function deleteFood(food) {
         fetch(
-          "https://csatri1.tk/api/planner/delete/" + food.id,
+          "https://csatri1.tk/api/nut/delete/" + food.id,
           { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
