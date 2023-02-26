@@ -44,7 +44,6 @@
       const mealNameInput = document.querySelector("#meal-name");
       const dayInput = document.querySelector("#day");
       const mealTypeInput = document.querySelector("#meal-type");
-
       addMealBtn.addEventListener("click", () => {
         const name = mealNameInput.value;
         const day = dayInput.value;
@@ -63,7 +62,6 @@
         window.location.reload();
       }, 1000);
       });
-
       function deleteMeal(id) {
     fetch("https://csatri1.tk/api/planner/delete/" + id, { method: "DELETE" })
       .catch((err) => console.log(err));
@@ -77,7 +75,6 @@
   });
   return deleteBtn;
 }
-
 function getMeals() {
   fetch("https://csatri1.tk/api/planner/")
     .then((res) => res.json())
@@ -115,7 +112,6 @@ function getMeals() {
     })
     .catch((err) => console.log(err));
 }
-
       function addMealToTable(meal) {
         const row = document.createElement("tr");
         const nameCell = document.createElement("td")
@@ -138,7 +134,6 @@ function getMeals() {
         row.appendChild(deleteCell);
         mealTable.appendChild(row);
       }
-
   getMeals();
 </script>
 
