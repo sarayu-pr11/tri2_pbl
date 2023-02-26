@@ -106,7 +106,7 @@ w { color: #eeeee4 }
         const item = { id, food, calories, category };
         fetch(
           "https://csatri1.tk/api/nut/delete/" + id,
-          { method: "DELETE", credentials: 'include' }
+          { method: "DELETE" }
         )
           .then((res) => res.json())
           .then(() => {
