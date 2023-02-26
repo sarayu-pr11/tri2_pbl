@@ -92,11 +92,11 @@ w { color: #eeeee4 }
             addFoodToTable(data);
             foodNameInput.value = "";
             caloriesInput.value = ;
-            categoryTypeInput.value = "";
+            categoryInput.value = "";
           })
           .catch((err) => console.log(err));
       });
-      function getMeals() {
+      function getFood() {
         fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
@@ -105,7 +105,7 @@ w { color: #eeeee4 }
           })
           .catch((err) => console.log(err));
       }
-      function addMealToTable(meal) {
+      function addFoodToTable(food) {
         const row = document.createElement("tr");
         const nameCell = document.createElement("td");
         const caloriesCell = document.createElement("td");
@@ -122,8 +122,8 @@ w { color: #eeeee4 }
         deleteCell.appendChild(deleteButton);
         row.appendChild(nameCell);
         row.appendChild(caloriesCell);
-        row.appendChild(mealTypeCell);
         row.appendChild(categoryCell);
+        row.appendChild(deleteCell);
         foodTable.appendChild(row);
       }
       function deleteFood(food) {
@@ -132,11 +132,11 @@ w { color: #eeeee4 }
           { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
-            getMeals();
+            getFood();
           })
           .catch((err) => console.log(err));
-      }
-      getMeals();
+      getFood();
     </script>
   </body>
 </html>
+
