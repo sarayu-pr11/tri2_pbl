@@ -115,7 +115,7 @@ w { color: #eeeee4 }
         });
         foodCell.textContent = item.food;
         caloriesCell.textContent = item.calories;
-        categoryCell.textContent = item.item;  //
+        categoryCell.textContent = item.category;  
         deleteCell.appendChild(deleteButton);
         row.appendChild(foodCell);
         row.appendChild(caloriesCell);
