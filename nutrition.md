@@ -6,7 +6,7 @@
 
 <script>
 
-function getFoodCal(){
+function getFoodName(){
     let inputFood = document.getElementById("inputFood").value;
     return inputFood;
 }
@@ -32,7 +32,7 @@ function findCalories(foodName) {
 <div style="background-color: #DFB379; text-align: center; vertical-align: middle; padding: 40px; margin-top: 30px; border-radius: 10px;">
     <w>Ingredient</w>
     <input id="inputFood" placeholder="Input Food">
-    <button onclick="findCalories(getFoodCal())">Submit</button>
+    <button onclick="findCalories(getFoodName())">Submit</button>
 </div>
 
 <div style=" text-align:center; vertical-align: middle; padding:10px; margin-top:30px">
@@ -56,12 +56,12 @@ w { color: #eeeee4 }
   <body>
     <h1 id="saved-nutrition">Saved Nutrition</h1>
     <div>
-      <input placeholder ="Food" type="text" id="food-name" />
+      <input placeholder ="Food" type="text" id="food" />
       <input placeholder ="Calories" type="text" id="calories" />
       <input placeholder ="Category" type="text" id="category" />
-      <button id="add-food">Save</button>
+      <button id="add-entry">Save</button>
     </div>
-    <table id="food-table">
+    <table id="entry-table">
       <thead>
         <tr>
           <th>Food</th>
@@ -73,21 +73,21 @@ w { color: #eeeee4 }
       <tbody></tbody>
     </table>
     <script>
-      const foodTable = document.querySelector("#food-table tbody");
-      const addFoodBtn = document.querySelector("#add-food");
-      const foodNameInput = document.querySelector("#food-name");
+      const entryTable = document.querySelector("#entry-table tbody");
+      const addentryBtn = document.querySelector("#add-entry");
+      const foodInput = document.querySelector("#food");
       const caloriesInput = document.querySelector("#calories");
       const categoryInput = document.querySelector("#category");
-      addFoodBtn.addEventListener("click", () => {
-        const name = foodNameInput.value;
+      addEntryBtn.addEventListener("click", () => {
+        const food = foodInput.value;
         const calories = dayInput.value;
         const category = categoryInput.value;
-        const food = { name, calories, category };
-        fetch("https://csatri1.tk/api/nut/create/" + name + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
+        const entry = { food, calories, category };
+        fetch("https://csatri1.tk/api/nut/create/" + food + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
           .then((res) => res.json())
           .then((data) => {
-            addFoodToTable(data);
-            foodNameInput.value = "";
+            addEntryToTable(data);
+            foodInput.value = "";
             caloriesInput.value = 0;
             categoryInput.value = "";
           })
@@ -97,35 +97,35 @@ w { color: #eeeee4 }
         fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
-            foodTable.innerHTML = "";
-            data.forEach(addFoodToTable);
+            entryTable.innerHTML = "";
+            data.forEach(addEntryToTable);
           })
           .catch((err) => console.log(err));
       }
-      function addFoodToTable(food) {
+      function addEntryToTable(entry) {
         const row = document.createElement("tr");
-        const nameCell = document.createElement("td");
+        const foodCell = document.createElement("td");
         const caloriesCell = document.createElement("td");
         const categoryCell = document.createElement("td");
         const deleteCell = document.createElement("td");
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
         deleteButton.addEventListener("click", () => {
-          deleteFood(food);
+          deleteEntry(entry);
         });
-        nameCell.textContent = food.name;
-        caloriesCell.textContent = food.calories;
-        categoryCell.textContent = food.category; // food.food
+        foodCell.textContent = entry.food;
+        caloriesCell.textContent = entry.calories;
+        categoryCell.textContent = entry.category; 
         deleteCell.appendChild(deleteButton);
-        row.appendChild(nameCell);
+        row.appendChild(foodCell);
         row.appendChild(caloriesCell);
         row.appendChild(categoryCell);
         row.appendChild(deleteCell);
-        foodTable.appendChild(row);
+        entryTable.appendChild(row);
       }
-      function deleteFood(food) {
+      function deleteEntry(entry) {
         fetch(
-          "https://csatri1.tk/api/nut/delete/" + food.id,
+          "https://csatri1.tk/api/nut/delete/" + entry.id,
           { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
