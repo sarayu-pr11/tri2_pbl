@@ -48,205 +48,95 @@ w { color: #eeeee4 }
 
 
 
-
-<input id="search" placeholder="Search">
-<button onclick="search()">Search</button>
-<select id="filter">
-	<option>Filter by...</option>
-	<option>food</option>
-	<option>category</option>
-</select>
-
-<input id="food" placeholder="Food">
-<input id="calories" placeholder="Calories">
-<input id="category" placeholder="Category">
-<button onclick="post()">Post</button>
-
-
-<!-- Create table to display question posts -->
-<body>
-<h1 class="text-center m-5 text-success">Saved Nutrition</h1>
-     <br>
-    <div class="table-responsive mx-5">
-        <table class="table table-hover table-bordered border-secondary mb-5">
-            <thead>
-                <tr>
-                    <th scope="col">Food</th>
-                    <th scope="col">Calories</th>
-                    <th scope="col">Category</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider" id="foods">
-            </tbody>
-        </table>
-    </div>
- 	<script>
-        // prepare fetch urls
-        // const club_url = "http://localhost:8192/api/club";
-        const nut_url = "https://csatri1.tk/api/nut";
-        const get_url = nut_url + "/";
-        const nutContainer = document.getElementById("nut");
-        // prepare fetch GET options
-        const options = {
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
-            // mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-            // credentials: 'same-origin', // include, same-origin, omit
-            headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-        };
-        // fetch the API
-        fetch(get_url, options)
-            // response is a RESTful "promise" on any successful fetch
-            .then(response => {
-            // check for response errors
-            if (response.status !== 200) {
-                error('GET API response failure: ' + response.status);
-                return;
-            }
-            // valid response will have JSON data
-            response.json().then(data => {
-                for (const row of data) {
-                    console.log(row);
-                    // columns
-                    const tr = document.createElement("tr");
-                    const food = document.createElement("td");
-                    const calories = document.createElement("td");
-                    const category = document.createElement("td");
-                    food.innerHTML = row.food;
-                    calories.innerHTML = row.calories;
-                    category.innerHTML = row.category;
-                    // add all columns to the row
-                    tr.appendChild(food);
-                    tr.appendChild(calories);
-                    tr.appendChild(category);
-                    // add row to table
-                    nutContainer.appendChild(tr);
-                }    
-            })
-        })
-        // catch fetch errors (ie Nginx ACCESS to server blocked)
-        .catch(err => {
-            error(err + " " + get_url);
-        });
-        // Something went wrong with actions or responses
-        function error(err) {
-            // log as Error in console
-            console.error(err);
-            // append error to resultContainer
-            const tr = document.createElement("tr");
-            const td = document.createElement("td");
-            td.innerHTML = err;
-            tr.appendChild(td);
-            nutContainer.appendChild(tr);
-        }
-    </script>
-<body>
-
-
-
-
-
-
-
 <html>
-    <head>
-        <style>
-            .role {
-                color: red;
-            }
-        </style>
-    </head>
-    <body>
-        <h1 class="text-center m-5 text-success">Saved Nutrition</h1>
-        <br>
-        <div class="table-responsive mx-5">
-            <table class="table table-hover table-bordered border-secondary mb-5">
-                <thead>
-                    <tr>
-                        <th scope="col">Food</th>
-                        <th scope="col">Calories</th>
-                        <th scope="col">Category</th>
-                        <input id="food" placeholder="Enter Food">
-                        <input id="calories" placeholder="Enter Calories">
-                        <input id="category" placeholder="Enter Category">
-                        <button onclick="createFood()">Submit</button>
-                        <br>
-                        <!-- Update and delete -->
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider" id="foods">
-                </tbody>
-            </table>
-        </div>
-        <script>
-            // prepare fetch urls
-            // const club_url = "http://localhost:8192/api/club";
-            const nut_url = "https://csatri1.tk/api/nut";
-            const get_url = nut_url + "/";
-            const nutContainer = document.getElementById("foods");
-            // prepare fetch GET options
-            const options = {
-                method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                // mode: 'cors', // no-cors, *cors, same-origin
-                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                // credentials: 'same-origin', // include, same-origin, omit
-                headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            };
-            const post_options = {...options, method: 'POST'}; // clones and replaces method
-            // fetch the API
-            fetch(get_url, options)
-                // response is a RESTful "promise" on any successful fetch
-                .then(response => {
-                // check for response errors
-                if (response.status !== 200) {
-                    error('GET API response failure: ' + response.status);
-                    return;
-                }
-                // valid response will have JSON data
-                response.json().then(data => {
-                    for (const row of data) {
-                        console.log(row);
-                        // columns
-                        const tr = document.createElement("tr");
-                        const food = document.createElement("td");
-                        const calories = document.createElement("td");
-                        const category = document.createElement("td");
-                        food.innerHTML = row.food;
-                        calories.innerHTML = row.calories;
-                        category.innerHTML = row.category;
-                        // add all columns to the row
-                        tr.appendChild(food);
-                        tr.appendChild(calories);
-                        tr.appendChild(category);
-                        // add row to table
-                        nutContainer.appendChild(tr);
-                    }    
-                })
-            })
-            // catch fetch errors (ie Nginx ACCESS to server blocked)
-            .catch(err => {
-                error(err + " " + get_url);
-            });
-            // Something went wrong with actions or responses
-            function error(err) {
-                // log as Error in console
-                console.error(err);
-                // append error to resultContainer
-                const tr = document.createElement("tr");
-                const td = document.createElement("td");
-                td.innerHTML = err;
-                tr.appendChild(td);
-                nutContainer.appendChild(tr);
-            }
-        </script>
-    </body>
+  <head>
+    <title>Saved Nutrition</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>Saved Nutrition</h1>
+    <div>
+      <label for="food-name">Food:</label>
+      <input type="text" id="food-name" />
+      <label for="calories">Calories:</label>
+      <input type="text" id="calories" />
+      <label for="category">Category:</label>
+      <input type="text" id="category" />
+      <button id="save">Save</button>
+    </div>
+    <table id="nut-table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Calories</th>
+          <th>Category</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const foodTable = document.querySelector("#food-table tbody");
+      const addFoodBtn = document.querySelector("#add-food");
+      const foodNameInput = document.querySelector("#food-name");
+      const caloriesInput = document.querySelector("#calories");
+      const categoryInput = document.querySelector("#category");
+      addFoodBtn.addEventListener("click", () => {
+        const name = foodNameInput.value;
+        const calories = caloriesInput.value;
+        const category = categoryInput.value;
+        const food = { name, calories, category };
+        fetch("https://csatri1.tk/api/nut/create/" + name + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
+          .then((res) => res.json())
+          .then((data) => {
+            addFoodToTable(data);
+            foodNameInput.value = "";
+            caloriesInput.value = ;
+            categoryTypeInput.value = "";
+          })
+          .catch((err) => console.log(err));
+      });
+      function getMeals() {
+        fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
+          .then((res) => res.json())
+          .then((data) => {
+            foodTable.innerHTML = "";
+            data.forEach(addFoodToTable);
+          })
+          .catch((err) => console.log(err));
+      }
+      function addMealToTable(meal) {
+        const row = document.createElement("tr");
+        const nameCell = document.createElement("td");
+        const caloriesCell = document.createElement("td");
+        const categoryCell = document.createElement("td");
+        const deleteCell = document.createElement("td");
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.addEventListener("click", () => {
+          deleteFood(food);
+        });
+        nameCell.textContent = food.name;
+        caloriesCell.textContent = food.calories;
+        categoryCell.textContent = food.category;
+        deleteCell.appendChild(deleteButton);
+        row.appendChild(nameCell);
+        row.appendChild(caloriesCell);
+        row.appendChild(mealTypeCell);
+        row.appendChild(categoryCell);
+        foodTable.appendChild(row);
+      }
+      function deleteFood(food) {
+        fetch(
+          "https://csatri1.tk/api/nut/delete/" + food.id,
+          { method: "DELETE", credentials: 'include' }
+        )
+          .then(() => {
+            getMeals();
+          })
+          .catch((err) => console.log(err));
+      }
+      getMeals();
+    </script>
+  </body>
 </html>
-
