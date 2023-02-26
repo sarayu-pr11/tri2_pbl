@@ -50,93 +50,93 @@ w { color: #eeeee4 }
 
 <html>
   <head>
-    <title>Meal Planner</title>
+    <title>Saved Nutrition</title>
     <meta charset="UTF-8" />
   </head>
   <body>
-    <h1 id="meal-planner">Meal Planner</h1>
+    <h1 id="saved-nutrition">Saved Nutrition</h1>
     <div>
-      <input placeholder ="Meal Name" type="text" id="meal-name" />
-      <input placeholder ="Day" type="text" id="day" />
-      <input placeholder ="Meal Type" type="text" id="meal-type" />
-      <button id="add-meal">Add Meal</button>
+      <input placeholder ="Food" type="text" id="food-name" />
+      <input placeholder ="Calories" type="text" id="calories" />
+      <input placeholder ="Category" type="text" id="category" />
+      <button id="add-food">Save</button>
     </div>
-    <table id="meal-table">
+    <table id="food-table">
       <thead>
         <tr>
-          <th>Meal Name</th>
-          <th>Day</th>
-          <th>Meal Type</th>
+          <th>Food</th>
+          <th>Calories</th>
+          <th>Category</th>
           <th></th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
     <script>
-      const mealTable = document.querySelector("#meal-table tbody");
-      const addMealBtn = document.querySelector("#add-meal");
-      const mealNameInput = document.querySelector("#meal-name");
-      const dayInput = document.querySelector("#day");
-      const mealTypeInput = document.querySelector("#meal-type");
-      addMealBtn.addEventListener("click", () => {
-        const name = mealNameInput.value;
-        const day = dayInput.value;
-        const mealType = mealTypeInput.value;
-        const meal = { name, day, mealType };
-        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, { method: "POST", credentials: 'include' })
+      const foodTable = document.querySelector("#food-table tbody");
+      const addFoodBtn = document.querySelector("#add-food");
+      const foodNameInput = document.querySelector("#food-name");
+      const caloriesInput = document.querySelector("#calories");
+      const categoryInput = document.querySelector("#category");
+      addFoodBtn.addEventListener("click", () => {
+        const name = foodNameInput.value;
+        const calories = dayInput.value;
+        const category = categoryInput.value;
+        const food = { name, calories, category };
+        fetch("https://csatri1.tk/api/nut/create/" + name + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
           .then((res) => res.json())
           .then((data) => {
-            addMealToTable(data);
-            mealNameInput.value = "";
-            dayInput.value = "";
-            mealTypeInput.value = "";
+            addFoodToTable(data);
+            foodNameInput.value = "";
+            caloriesInput.value = 0;
+            categoryInput.value = "";
           })
           .catch((err) => console.log(err));
       });
-      function getMeals() {
-        fetch("https://csatri1.tk/api/planner/", {credentials: 'include'})
+      function getFood() {
+        fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
-            mealTable.innerHTML = "";
-            data.forEach(addMealToTable);
+            foodTable.innerHTML = "";
+            data.forEach(addFoodToTable);
           })
           .catch((err) => console.log(err));
       }
-      function addMealToTable(meal) {
+      function addFoodToTable(food) {
         const row = document.createElement("tr");
         const nameCell = document.createElement("td");
-        const dayCell = document.createElement("td");
-        const mealTypeCell = document.createElement("td");
+        const caloriesCell = document.createElement("td");
+        const categoryCell = document.createElement("td");
         const deleteCell = document.createElement("td");
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
         deleteButton.addEventListener("click", () => {
-          deleteMeal(meal);
+          deleteFood(food);
         });
-        nameCell.textContent = meal.name;
-        dayCell.textContent = meal.day;
-        mealTypeCell.textContent = meal.meal;
+        nameCell.textContent = food.name;
+        caloriesCell.textContent = food.calories;
+        categoryCell.textContent = food.category; // food.food
         deleteCell.appendChild(deleteButton);
         row.appendChild(nameCell);
-        row.appendChild(dayCell);
-        row.appendChild(mealTypeCell);
+        row.appendChild(caloriesCell);
+        row.appendChild(categoryCell);
         row.appendChild(deleteCell);
-        mealTable.appendChild(row);
+        foodTable.appendChild(row);
       }
-      function deleteMeal(meal) {
+      function deleteFood(food) {
         fetch(
-          "https://csatri1.tk/api/planner/delete/" + meal.id,
+          "https://csatri1.tk/api/planner/delete/" + food.id,
           { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
-            getMeals();
+            getFood();
           })
           .catch((err) => console.log(err));
       }
-      getMeals();
+      getFood();
     </script>
     <style>
-      #meal-planner {
+      #saved-nutrition {
         text-align:center;
       }
       </style>
