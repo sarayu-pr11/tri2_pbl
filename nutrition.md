@@ -6,7 +6,7 @@
 
 <script>
 
-function getFood(){
+function getFoodCal(){
     let inputFood = document.getElementById("inputFood").value;
     return inputFood;
 }
@@ -32,7 +32,7 @@ function findCalories(foodName) {
 <div style="background-color: #DFB379; text-align: center; vertical-align: middle; padding: 40px; margin-top: 30px; border-radius: 10px;">
     <w>Ingredient</w>
     <input id="inputFood" placeholder="Input Food">
-    <button onclick="findCalories(getFood())">Submit</button>
+    <button onclick="findCalories(getFoodCal())">Submit</button>
 </div>
 
 <div style=" text-align:center; vertical-align: middle; padding:10px; margin-top:30px">
