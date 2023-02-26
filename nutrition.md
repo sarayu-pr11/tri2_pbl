@@ -103,10 +103,10 @@ w { color: #eeeee4 }
       });
       deleteFoodBtn.addEventListener("click", () => {
         const id = idInput.value;
-        const item = { id, food, calories, category };
+        //const item = { id, food, calories, category };
         fetch(
           "https://csatri1.tk/api/nut/delete/" + id,
-          { method: "DELETE" }
+          { method: "DELETE" , credentials: 'include'}
         )
           .then((res) => res.json())
           .then(() => {
@@ -169,6 +169,14 @@ w { color: #eeeee4 }
       </style>
   </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
