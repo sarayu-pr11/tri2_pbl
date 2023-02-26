@@ -27,8 +27,11 @@
       <thead>
         <tr>
           <th>Day</th>
+          <th>Delete</th>
           <th>Breakfast</th>
+          <th>Delete</th>
           <th>Lunch</th>
+          <th>Delete</th>
           <th>Dinner</th>
         </tr>
       </thead>
@@ -41,6 +44,7 @@
       const mealNameInput = document.querySelector("#meal-name");
       const dayInput = document.querySelector("#day");
       const mealTypeInput = document.querySelector("#meal-type");
+
       addMealBtn.addEventListener("click", () => {
         const name = mealNameInput.value;
         const day = dayInput.value;
@@ -59,34 +63,59 @@
         window.location.reload();
       }, 1000);
       });
-      function getMeals() {
-        fetch("https://csatri1.tk/api/planner/")
-          .then((res) => res.json())
-          .then((data) => {
-            mealTable.innerHTML = "";
-            const days = {};
-            data.forEach(meal => {
-              if (!days[meal.day]) {
-                days[meal.day] = {};
-              }
-              days[meal.day][meal.meal] = meal.name;
-            });
-            Object.keys(days).forEach(day => {
-              const row = document.createElement("tr");
-              const dayCell = document.createElement("th");
-              dayCell.textContent = day;
-              row.appendChild(dayCell);
-              ["Breakfast", "Lunch", "Dinner"].forEach(mealType => {
-                const mealName = days[day][mealType];
-                const mealCell = document.createElement("td");
-                mealCell.textContent = mealName ? mealName : "";
-                row.appendChild(mealCell);
-              });
-              mealTable.appendChild(row);
-            });
-          })
-          .catch((err) => console.log(err));
-      }
+
+      function deleteMeal(id) {
+    fetch("https://csatri1.tk/api/planner/delete/" + id, { method: "DELETE" })
+      .catch((err) => console.log(err));
+  }
+      function createDeleteButton(id) {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.addEventListener("click", () => {
+    deleteMeal(id);
+    mealTable.removeChild(row);
+  });
+  return deleteBtn;
+}
+
+function getMeals() {
+  fetch("https://csatri1.tk/api/planner/")
+    .then((res) => res.json())
+    .then((data) => {
+      mealTable.innerHTML = "";
+      const days = {};
+      data.forEach(meal => {
+        if (!days[meal.day]) {
+          days[meal.day] = {};
+        }
+        days[meal.day][meal.meal] = meal;
+      });
+      Object.keys(days).forEach(day => {
+        const row = document.createElement("tr");
+        const dayCell = document.createElement("th");
+        dayCell.textContent = day;
+        row.appendChild(dayCell);
+        ["Breakfast", "Lunch", "Dinner"].forEach(mealType => {
+          const meal = days[day][mealType];
+          const mealName = meal ? meal.name : "";
+          const mealCell = document.createElement("td");
+          mealCell.textContent = mealName;
+          if (meal) {
+            const deleteBtn = createDeleteButton(meal.id);
+            const deleteCell = document.createElement("td");
+            deleteCell.appendChild(deleteBtn);
+            row.appendChild(deleteCell);
+          } else {
+            row.appendChild(document.createElement("td"));
+          }
+          row.appendChild(mealCell);
+        });
+        mealTable.appendChild(row);
+      });
+    })
+    .catch((err) => console.log(err));
+}
+
       function addMealToTable(meal) {
         const row = document.createElement("tr");
         const nameCell = document.createElement("td")
@@ -109,9 +138,17 @@
         row.appendChild(deleteCell);
         mealTable.appendChild(row);
       }
-        function deleteMeal(id) {
-    fetch("https://csatri1.tk/api/planner/delete/" + id, { method: "DELETE" })
-      .catch((err) => console.log(err));
-  }
+
   getMeals();
 </script>
+
+<style>
+  table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+</style>
