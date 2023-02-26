@@ -72,9 +72,15 @@ w { color: #eeeee4 }
       </thead>
       <tbody></tbody>
     </table>
+    <div>
+      <input placeholder ="Food ID" type="text" id="id" />
+      <button id="delete-food">Delete</button>
+    </div>
     <script>
       const foodTable = document.querySelector("#food-table tbody");
       const addFoodBtn = document.querySelector("#add-food");
+      const deleteFoodBtn = document.querySelector("#delete-food");      //
+      const idInput = document.querySelector("#id");      //
       const foodInput = document.querySelector("#food");
       const caloriesInput = document.querySelector("#calories");
       const categoryInput = document.querySelector("#category");
@@ -90,6 +96,19 @@ w { color: #eeeee4 }
             foodInput.value = "";
             caloriesInput.value = 0;
             categoryInput.value = "";
+          })
+          .catch((err) => console.log(err));
+          window.location.reload()
+      });
+      deleteFoodBtn.addEventListener("click", () => {
+        const id = idInput.value;
+        const item = { id, food, calories, category };
+        fetch(
+          "https://csatri1.tk/api/nut/delete/" + id,
+          { method: "DELETE", credentials: 'include' }
+        )
+          .then(() => {
+            getFood();
           })
           .catch((err) => console.log(err));
           window.location.reload()
@@ -133,6 +152,7 @@ w { color: #eeeee4 }
             getFood();
           })
           .catch((err) => console.log(err));
+          window.location.reload()
       }
       getFood();
     </script>
