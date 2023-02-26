@@ -64,6 +64,7 @@ w { color: #eeeee4 }
     <table id="food-table">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Food</th>
           <th>Calories</th>
           <th>Category</th>
