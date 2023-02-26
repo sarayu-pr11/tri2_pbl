@@ -49,7 +49,7 @@
         const day = dayInput.value;
         const mealType = mealTypeInput.value;
         const meal = { name, day, mealType };
-        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, {credentials:'include'}, { method: "POST" })
+        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, { method: "POST", credentials:'include'})
           .then((res) => res.json())
           .then((data) => {
             addMealToTable(data);
@@ -63,7 +63,7 @@
       }, 1000);
       });
       function deleteMeal(id) {
-    fetch("https://csatri1.tk/api/planner/delete/" + id, {credentials:'include'}, { method: "DELETE" })
+    fetch("https://csatri1.tk/api/planner/delete/" + id, { method: "DELETE", credentials:'include'})
       .catch((err) => console.log(err));
   }
       function createDeleteButton(id) {
