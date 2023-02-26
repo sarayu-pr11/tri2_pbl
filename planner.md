@@ -33,7 +33,7 @@
         const day = dayInput.value;
         const mealType = mealTypeInput.value;
         const meal = { name, day, mealType };
-        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, { method: "POST" })
+        fetch("https://csatri1.tk/api/planner/create/" + name + "/" + day + "/" + mealType, { method: "POST", credentials: 'include' })
           .then((res) => res.json())
           .then((data) => {
             addMealToTable(data);
@@ -44,7 +44,7 @@
           .catch((err) => console.log(err));
       });
       function getMeals() {
-        fetch("https://csatri1.tk/api/planner/")
+        fetch("https://csatri1.tk/api/planner/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
             mealTable.innerHTML = "";
@@ -76,7 +76,7 @@
       function deleteMeal(meal) {
         fetch(
           "https://csatri1.tk/api/planner/delete/" + meal.id,
-          { method: "DELETE" }
+          { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
             getMeals();

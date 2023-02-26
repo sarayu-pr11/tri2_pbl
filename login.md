@@ -1,20 +1,32 @@
-## Login
+<html>
+  <head>
+    <title>Login</title>
+  </head>
 
- <div>
-    <input type="text" id="email" name="email" placeholder="Email" required>
-    <input type="password" id="password" name="password" placeholder="Password" required>
-    <button type="submit" onclick="loginForm()">Submit</button>
-</div>
+  <body>
 
-<p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
+    <form action="javascript:loginForm()">
+        <p><label>
+            <span class="email">Email:</span>
+            <input type="text" id="email" name="email" placeholder="email" required>
+        </label></p>
+        <p><label>
+            <span class="password">Password:</span>
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </label></p>
+        <p>
+            <button>Log in</button>
+        </p>
+    </form>
 
-<script>
-    function loginForm() {
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-        console.log(email);
-        data = {email: email, password: password}
-        console.log(data);
+    <p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
+
+  </body>
+
+  <script>
+      function loginForm() {
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
 
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
@@ -28,12 +40,27 @@
             method: 'POST',
             headers: myHeaders,
             body: raw,
+            credentials: 'include',
             redirect: 'follow'
           };
 
           fetch("https://csatri1.tk/authenticate", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-      }
-</script>
+            .then(response => {
+                if (response.status == 401) {
+                    const errorMsg = 'Incorrect credentials';
+                    alert(errorMsg);
+                    console.log(errorMsg);
+                    return;
+                }
+                else if (!response.ok) {
+                    const errorMsg = 'Login error: ' + response.status;
+                    console.log(errorMsg);
+                    return;
+                }
+
+                sessionStorage.setItem("username", email);
+                location.href = "{{site.baseurl}}/loggedin";
+            });
+        }
+  </script>
+</html>

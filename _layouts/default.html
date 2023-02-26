@@ -42,6 +42,14 @@
     
 
       <!-- </div> -->
+      <br>
+      <p id="signedinas"></p>
+
+      <script>
+          if (("username" in sessionStorage) && (location.pathname!="/logout")) {
+              document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("username");
+          }
+      </script>
     </div>
   </body>
 </html>
