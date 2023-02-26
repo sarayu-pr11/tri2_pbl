@@ -106,11 +106,12 @@ w { color: #eeeee4 }
         const item = { id, food, calories, category };
         fetch(
           "https://csatri1.tk/api/nut/delete/" + id,
-          { method: "DELETE", credentials: 'include' }
+          { method: "DELETE" }
         )
           .then((res) => res.json())
           .then(() => {
             getFood();
+            idInput.value = 0;
           })
           .catch((err) => console.log(err));
           window.location.reload()
@@ -130,22 +131,22 @@ w { color: #eeeee4 }
         const foodCell = document.createElement("td");
         const caloriesCell = document.createElement("td");
         const categoryCell = document.createElement("td");
-        const deleteCell = document.createElement("td");
-        const deleteButton = document.createElement("button");
-        deleteButton.innerHTML = "Delete";
-        deleteButton.addEventListener("click", () => {
-          deleteFood(item);
-        });
+        //const deleteCell = document.createElement("td");
+        //const deleteButton = document.createElement("button");
+        //deleteButton.innerHTML = "Delete";
+        //deleteButton.addEventListener("click", () => {
+          //deleteFood(item);
+        //});
         idCell.textContent = item.id;
         foodCell.textContent = item.food;
         caloriesCell.textContent = item.calories;
         categoryCell.textContent = item.category;  
-        deleteCell.appendChild(deleteButton);
+        //deleteCell.appendChild(deleteButton);
         row.appendChild(idCell);
         row.appendChild(foodCell);
         row.appendChild(caloriesCell);
         row.appendChild(categoryCell);
-        row.appendChild(deleteCell);
+        //row.appendChild(deleteCell);
         foodTable.appendChild(row);
       }
       function deleteFood(item) {
