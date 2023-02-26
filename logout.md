@@ -2,7 +2,7 @@
 
 <br>
 
-<p id="countdown"><a href="{{site.baseurl}}">Redirect to homepage</a></p>
+<p id="countdown"><a href="{{site.baseurl}}"><strong>Go back to to homepage</strong></a></p>
 
 <script>
     var requestOptions = {
@@ -15,14 +15,12 @@
 
     if ("username" in sessionStorage) {
         document.getElementById("login message").innerHTML = "You are now logged out of YUMI.  See you soon, "+sessionStorage.getItem("username")+"!";
+        sessionStorage.removeItem ("username");
     }
-
-    sessionStorage.removeItem ("username");
 
     for (let i = 5; i >=1; i++) { 
         document.getElementById("countdown").innerHTML = "Redirecting to homepage in "+i;
-        
-        await delay(1000);
+        wait(1000);
     }
 
     location.href = "{{site.baseurl}}";
