@@ -56,12 +56,12 @@ w { color: #eeeee4 }
   <body>
     <h1 id="saved-nutrition">Saved Nutrition</h1>
     <div>
-      <input placeholder ="Food" type="text" id="food" />
+      <input placeholder ="Food" type="text" id="food-name" />
       <input placeholder ="Calories" type="text" id="calories" />
       <input placeholder ="Category" type="text" id="category" />
-      <button id="add-entry">Save</button>
+      <button id="add-food">Save</button>
     </div>
-    <table id="entry-table">
+    <table id="food-table">
       <thead>
         <tr>
           <th>Food</th>
@@ -73,21 +73,21 @@ w { color: #eeeee4 }
       <tbody></tbody>
     </table>
     <script>
-      const entryTable = document.querySelector("#entry-table tbody");
-      const addentryBtn = document.querySelector("#add-entry");
-      const foodInput = document.querySelector("#food");
+      const foodTable = document.querySelector("#food-table tbody");
+      const addFoodBtn = document.querySelector("#add-food");
+      const foodNameInput = document.querySelector("#food-name");
       const caloriesInput = document.querySelector("#calories");
       const categoryInput = document.querySelector("#category");
-      addEntryBtn.addEventListener("click", () => {
-        const food = foodInput.value;
+      addFoodBtn.addEventListener("click", () => {
+        const name = foodNameInput.value;
         const calories = dayInput.value;
         const category = categoryInput.value;
-        const entry = { food, calories, category };
-        fetch("https://csatri1.tk/api/nut/create/" + food + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
+        const food = { name, calories, category };
+        fetch("https://csatri1.tk/api/nut/create/" + name + "/" + calories + "/" + category, { method: "POST", credentials: 'include' })
           .then((res) => res.json())
           .then((data) => {
-            addEntryToTable(data);
-            foodInput.value = "";
+            addFoodToTable(data);
+            foodNameInput.value = "";
             caloriesInput.value = 0;
             categoryInput.value = "";
           })
@@ -97,35 +97,35 @@ w { color: #eeeee4 }
         fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
-            entryTable.innerHTML = "";
-            data.forEach(addEntryToTable);
+            foodTable.innerHTML = "";
+            data.forEach(addFoodToTable);
           })
           .catch((err) => console.log(err));
       }
-      function addEntryToTable(entry) {
+      function addFoodToTable(food) {
         const row = document.createElement("tr");
-        const foodCell = document.createElement("td");
+        const nameCell = document.createElement("td");
         const caloriesCell = document.createElement("td");
         const categoryCell = document.createElement("td");
         const deleteCell = document.createElement("td");
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
         deleteButton.addEventListener("click", () => {
-          deleteEntry(entry);
+          deleteFood(food);
         });
-        foodCell.textContent = entry.food;
-        caloriesCell.textContent = entry.calories;
-        categoryCell.textContent = entry.category; 
+        nameCell.textContent = food.name;
+        caloriesCell.textContent = food.calories;
+        categoryCell.textContent = food.category; // food.food
         deleteCell.appendChild(deleteButton);
-        row.appendChild(foodCell);
+        row.appendChild(nameCell);
         row.appendChild(caloriesCell);
         row.appendChild(categoryCell);
         row.appendChild(deleteCell);
-        entryTable.appendChild(row);
+        foodTable.appendChild(row);
       }
-      function deleteEntry(entry) {
+      function deleteFood(food) {
         fetch(
-          "https://csatri1.tk/api/nut/delete/" + entry.id,
+          "https://csatri1.tk/api/nut/delete/" + food.id,
           { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
