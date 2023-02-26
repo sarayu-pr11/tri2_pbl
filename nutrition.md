@@ -103,15 +103,16 @@ w { color: #eeeee4 }
       });
       deleteFoodBtn.addEventListener("click", () => {
         const id = idInput.value;
+        console.log(id);
         //const item = { id, food, calories, category };
         fetch(
           "https://csatri1.tk/api/nut/delete/" + id,
           { method: "DELETE" , credentials: 'include'}
         )
-          .then((res) => res.json())
+          //.then((res) => res.json())
           .then(() => {
-            getFood();
-            idInput.value = 0;
+            //getFood();
+            //idInput.value = 0;
           })
           .catch((err) => console.log(err));
           window.location.reload()
