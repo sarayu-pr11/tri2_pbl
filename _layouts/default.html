@@ -43,11 +43,11 @@
 
         <script>
           if (sessionStorage["login"] && location.pathname!="/logout") {
-            document.getElementById("two").innerHTML = "signed in as "+sessionStorage.getItem("login");; 
+            document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("login");; 
           }
 
           else {
-            document.getElementById("two").remove(); 
+            document.getElementById("signedinas").remove(); 
           }
         </script>
 

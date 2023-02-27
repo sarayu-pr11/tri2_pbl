@@ -37,7 +37,7 @@ layout: default
             } else {
               alert("You are logged in!");
               sessionStorage.setItem("login", email);
-              window.location.href = "{{site.baseurl}}/loggedin";
+              window.location.href = "{{site.baseurl}}";
             }
           });
       }
