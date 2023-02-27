@@ -34,7 +34,7 @@ layout: default
             redirect: 'follow',
             body: JSON.stringify(data)
         };
-        fetch(`https://csatri1.tk/api/person/post`,requestOptions)
+        fetch("https://csatri1.tk/api/person/post?email="+email+"&password="+password+"&name="+name+"&dob="+dob, requestOptions)
           .then(response => response.text())
           .then(result => {
               console.log(result);
