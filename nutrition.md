@@ -75,7 +75,6 @@ w { color: #eeeee4 }
     </table>
     <div>
       <input placeholder ="Food ID" type="text" id="id" />
-      <button id="delete-food">Delete</button>
     </div>
     <script> 
       const foodTable = document.querySelector("#food-table tbody");
