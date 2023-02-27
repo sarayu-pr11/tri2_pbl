@@ -15,7 +15,7 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <h1 id="saved-nutrition">My Recipes</h1>
+    <h1 id="saved-recipes">My Recipes</h1>
     <div>
       <input placeholder ="Name" type="text" id="name" />
       <input placeholder ="Price" type="text" id="price" />
@@ -141,8 +141,11 @@
       getFood();
     </script>
     <style>
-      #saved-nutrition {
+      #saved-recipes {
         text-align:center;
+      }
+      #food-table, th, td {
+        border: 1px solid;
       }
       </style>
   </body>
