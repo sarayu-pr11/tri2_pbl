@@ -115,6 +115,7 @@ w { color: #eeeee4 }
             //idInput.value = 0;
           })
           .catch((err) => console.log(err));
+          console.log("here")
           window.location.reload()
       });
       function getFood() {
