@@ -77,16 +77,7 @@ w { color: #eeeee4 }
       <input placeholder ="Food ID" type="text" id="id" />
       <button id="delete-food">Delete</button>
     </div>
-    <script>
-      const cors = require('cors');
-      const express = require('express');
-      const app = express();
-      app.use(cors({
-        origin: '*',
-        methods: 'GET,PUT,POST,DELETE',
-        allowedHeaders: 'Content-Type',
-      }));  
-      //
+    <script> 
       const foodTable = document.querySelector("#food-table tbody");
       const addFoodBtn = document.querySelector("#add-food");
       const deleteFoodBtn = document.querySelector("#delete-food");      //
@@ -119,12 +110,12 @@ w { color: #eeeee4 }
           { method: "DELETE" , credentials: 'include'}
         )
           //.then((res) => res.json())
-          //.then(() => {
-            //getFood();
+          .then(() => {
+            getFood();
             //idInput.value = 0;
-          //})
-          //.catch((err) => console.log(err));
-          //window.location.reload()
+          })
+          .catch((err) => console.log(err));
+          window.location.reload()
           console.log("here");
       });
       function getFood() {
