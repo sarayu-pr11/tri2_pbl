@@ -89,7 +89,7 @@
           console.log("here")
       });
       function getFood() {
-        fetch("https://csatri1.tk/recipes/nut/", {credentials: 'include'})
+        fetch("https://csatri1.tk/api/recipes/", {credentials: 'include'})
           .then((res) => res.json())
           .then((data) => {
             foodTable.innerHTML = "";
