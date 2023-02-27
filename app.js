@@ -1,13 +1,10 @@
-const express = require('express');
 const cors = require('cors');
+const express = require('express');
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: 'GET,PUT,POST,DELETE',
+  allowedHeaders: 'Content-Type',
+}));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
-});
