@@ -111,6 +111,7 @@ w { color: #eeeee4 }
         )
           //.then((res) => res.json())
           .then(() => {
+            deleteFood(id);
             getFood();
             //idInput.value = 0;
           })
@@ -150,16 +151,16 @@ w { color: #eeeee4 }
         //row.appendChild(deleteCell);
         foodTable.appendChild(row);
       }
-      function deleteFood(item) {
+      function deleteFood(id) {
         fetch(
-          "https://csatri1.tk/api/nut/delete/" + item.id,
+          "https://csatri1.tk/api/nut/delete/" + id,
           { method: "DELETE", credentials: 'include' }
         )
           .then(() => {
             getFood();
           })
           .catch((err) => console.log(err));
-          window.location.reload()
+          //window.location.reload()
       }
       getFood();
     </script>
