@@ -111,7 +111,6 @@ w { color: #eeeee4 }
         )
           //.then((res) => res.json())
           .then(() => {
-            deleteFood(id);
             getFood();
             //idInput.value = 0;
           })
