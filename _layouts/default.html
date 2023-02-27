@@ -46,7 +46,9 @@
 
     <script>
       if (sessionStorage["login"] && location.pathname!="/logout") {
-        document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("login");; 
+        document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("login");
+        
+        fetch("https://csatri1.tk/api/person/", {credentials: 'include'});
       }
 
       else {
