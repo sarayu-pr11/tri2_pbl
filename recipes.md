@@ -140,24 +140,6 @@
         <th>Ingredients</th>
       </tr>
     </thead>
-    <thead>
-        <tr>
-          <th>gelato</th>
-          <th>10</th>
-          <th>target</th>
-          <th>dessert</th>
-          <th></th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>cake</th>
-          <th>7</th>
-          <th>target</th>
-          <th>sweet</th>
-          <th>eggs</th>
-        </tr>
-      </thead>
     <tbody>
     </tbody>
   </table>
