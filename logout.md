@@ -15,7 +15,7 @@ layout: default
 
             fetch("https://csatri1.tk/logout", requestOptions);
 
-            ("You are now logged out of YUMI.  See you soon, "+sessionStorage.getItem("login")+"!");
+            alert("You are now logged out of YUMI.  See you soon, "+sessionStorage.getItem("login")+"!");
             sessionStorage.removeItem ("login");
             location.href = "{{site.baseurl}}";
         }

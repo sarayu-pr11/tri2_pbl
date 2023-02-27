@@ -38,20 +38,21 @@
         <section id="main_content">
           {{ content }}
         </section>
-    
-        <p id="signedinas"></p>
-
-        <script>
-          if (sessionStorage["login"] && location.pathname!="/logout") {
-            document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("login");; 
-          }
-
-          else {
-            document.getElementById("signedinas").remove(); 
-          }
-        </script>
 
       <!-- </div> -->
     </div>
+
+    <p id="signedinas"></p>
+
+    <script>
+      if (sessionStorage["login"] && location.pathname!="/logout") {
+        document.getElementById("signedinas").innerHTML = "signed in as "+sessionStorage.getItem("login");; 
+      }
+
+      else {
+        document.getElementById("signedinas").remove(); 
+      }
+    </script>
+
   </body>
 </html>
