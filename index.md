@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-<img id ="home" src="/assets/images/home.png" alt="home" style="width:900px;height:543px;">
+<img id ="home" src="{{site.baseurl}}/assets/images/home.png" alt="home" style="width:900px;height:543px;">
 
 <style>
     #home{
@@ -11,14 +11,14 @@ layout: default
         left: 300px;
     }
 </style>
-<!-- <img src="/assets/images/ramen.png" alt="ramen" style="width:201px;height:149px;">
-<img src="/assets/images/tacos.png" alt="tacos" style="width:201px;height:149px;">
-<img src="/assets/images/cheese.png" alt="cheese" style="width:201px;height:149px;">
-<img src="/assets/images/poke.png" alt="poke" style="width:201px;height:149px;">
-<img src="/assets/images/eggs.png" alt="eggs" style="width:201px;height:149px;">
-<img src="/assets/images/ramenegg.png" alt="ramenegg" style="width:201px;height:149px;">
-<img src="/assets/images/guac.png" alt="guac" style="width:201px;height:149px;">
-<img src="/assets/images/hotsauce.png" alt="hotsauce" style="width:201px;height:149px;"> -->
+<img src="{{site.baseurl}}/assets/images/ramen.png" alt="ramen" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/tacos.png" alt="tacos" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/cheese.png" alt="cheese" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/poke.png" alt="poke" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/eggs.png" alt="eggs" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/ramenegg.png" alt="ramenegg" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/guac.png" alt="guac" style="width:201px;height:149px;">
+<img src="{{site.baseurl}}/assets/images/hotsauce.png" alt="hotsauce" style="width:201px;height:149px;">
 
 
 
