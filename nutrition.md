@@ -116,7 +116,6 @@ w { color: #eeeee4 }
           })
           .catch((err) => console.log(err));
           console.log("here")
-          window.location.reload()
       });
       function getFood() {
         fetch("https://csatri1.tk/api/nut/", {credentials: 'include'})
