@@ -78,6 +78,15 @@ w { color: #eeeee4 }
       <button id="delete-food">Delete</button>
     </div>
     <script>
+      const cors = require('cors');
+      const express = require('express');
+      const app = express();
+      app.use(cors({
+        origin: '*',
+        methods: 'GET,PUT,POST,DELETE',
+        allowedHeaders: 'Content-Type',
+      }));  
+      //
       const foodTable = document.querySelector("#food-table tbody");
       const addFoodBtn = document.querySelector("#add-food");
       const deleteFoodBtn = document.querySelector("#delete-food");      //
