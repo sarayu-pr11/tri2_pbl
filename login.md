@@ -24,7 +24,7 @@ layout: default
         data = {email: email, password: password}
         console.log(data);
 
-        fetch(`http://csatri1.tk/authenticate`, {
+        fetch(`https://csatri1.tk/authenticate`, {
           method: "POST",
           cache: 'default',
           credentials: 'include',
