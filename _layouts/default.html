@@ -42,7 +42,7 @@
         <p id="signedinas"></p>
 
         <script>
-          if (sessionStorage["login"]) {
+          if (sessionStorage["login"] && location.pathname!="/logout") {
             document.getElementById("two").innerHTML = "signed in as "+sessionStorage.getItem("login");; 
           }
 
