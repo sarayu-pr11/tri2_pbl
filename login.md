@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## Login
 
  <div>
@@ -9,6 +13,10 @@
 <p>New to YUMI?  <a href="{{site.baseurl}}/signup">Sign up here!</a></p>
 
 <script>
+    if (sessionStorage["login"]){
+      location.href = "{{site.baseurl}}";
+    }
+
     function loginForm() {
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
@@ -18,7 +26,6 @@
 
         fetch(`http://csatri1.tk/authenticate`, {
           method: "POST",
-          mode:'no-cors',
           cache: 'default',
           credentials: 'include',
           headers: {'Content-Type': "application/json"},
@@ -29,7 +36,8 @@
               alert("Invalid credentials");
             } else {
               alert("You are logged in!");
-              window.location.href = "{{site.baseurl}}/";
+              sessionStorage.setItem("login", email);
+              window.location.href = "{{site.baseurl}}/loggedin";
             }
           });
       }
