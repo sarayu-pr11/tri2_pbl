@@ -38,7 +38,7 @@ layout: default
           .then(response => response.text())
           .then(result => {
               console.log(result);
-              if (result == `${email} is created successfully.`) {
+              if (result == `${email} is created successfully`) {
                   alert("You are now signed up on YUMI!  Redirecting to login page.");
                   window.location.href = "{{site.baseurl}}/login";
               } else {
