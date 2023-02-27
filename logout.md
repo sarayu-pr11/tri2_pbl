@@ -21,8 +21,8 @@ layout: default
         }
         
         else {
-            location.href = "{{site.baseurl}}";
             alert("You are still logged in.  Redirecting to homepage!");
+            location.href = "{{site.baseurl}}";
         } 
     }
 
