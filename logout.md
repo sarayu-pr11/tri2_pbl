@@ -2,7 +2,7 @@
 layout: default
 ---
  
- ## Logout
+## Logout
 
 <script>
     if (sessionStorage["login"]) {
