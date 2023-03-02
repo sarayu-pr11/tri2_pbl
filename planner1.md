@@ -71,7 +71,6 @@
   deleteBtn.textContent = "Delete";
   deleteBtn.addEventListener("click", () => {
     deleteMeal(id);
-    mealTable.removeChild(row);
   });
   return deleteBtn;
 }
